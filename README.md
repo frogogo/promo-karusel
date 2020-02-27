@@ -1,21 +1,18 @@
 # carousel
 
-To get started, clone the project and install the dependencies:
+## Build Setup
 
-```
-yarn
-```
+``` bash
+# install dependencies
+$ yarn install
 
-After that, start up Webpack Development Server:
+# serve with hot reload at localhost:3000
+$ yarn dev
 
-```
-yarn serve
-```
+# build for production and launch server
+$ yarn build
+$ yarn start
 
-To build a production bundle run:
-
+# generate static project
+$ yarn generate
 ```
-yarn build
-```
-
-After that you will have a ready to deploy bundle at `/dist`
