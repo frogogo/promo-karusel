@@ -1,5 +1,18 @@
 module.exports = {
-  theme: {},
-  variants: {},
-  plugins: []
+  theme: {
+    container: {
+      center: true,
+      padding: '1rem'
+    },
+    colors: {
+      transparent: 'transparent',
+      primary: '#ed1c24',
+      secondary: {
+        default: '#1e1e3c',
+        dark: '#616176'
+      },
+      white: '#ffffff',
+      grey: '#d8d8d8'
+    }
+  }
 }
