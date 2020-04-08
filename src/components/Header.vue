@@ -30,23 +30,20 @@ export default {
 </script>
 
 <style scoped lang="css">
-.header {
-
-}
 
 .navigation-link {
   @apply text-white text-sm px-8 transition-all duration-150 relative;
+}
 
-  &:hover {
-    @apply text-grey;
+.navigation-link:hover {
+  @apply text-grey;
+}
 
-    &:after {
-      content: '';
-      bottom: -.7rem;
-      left: calc(50% - 1.25rem);
+.navigation-link:hover:after {
+  content: '';
+  bottom: -.7rem;
+  left: calc(50% - 1.25rem);
 
-      @apply w-10 h-1 bg-primary absolute rounded flex;
-    }
-  }
+  @apply w-10 h-1 bg-primary absolute rounded flex;
 }
 </style>
