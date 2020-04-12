@@ -6,10 +6,13 @@ module.exports = {
     },
     colors: {
       transparent: 'transparent',
-      primary: '#ed1c24',
+      primary: {
+        300: '#ff0a26',
+        500: '#e30513'
+      },
       secondary: {
-        default: '#1e1e3c',
-        dark: '#616176'
+        300: '#b12e2c',
+        500: '#6c1c1b'
       },
       white: '#ffffff',
       grey: '#d8d8d8'

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#E30513" d="M101.372 4.71l73.918 73.918c6.28 6.28 6.28 16.463 0 22.744l-73.918 73.918c-6.28 6.28-16.463 6.28-22.744 0L4.71 101.372c-6.28-6.28-6.28-16.463 0-22.744L78.628 4.71c6.28-6.28 16.463-6.28 22.744 0z"/>
+        <text fill="#FFF" font-family="CircleBold" font-size="60">
+            <tspan x="60" y="110">65</tspan>
+        </text>
+        <text fill="#FFF" font-family="CircleRegular" font-size="30">
+            <tspan x="130" y="103">%</tspan>
+        </text>
+        <text fill="#FFF" font-family="CircleRegular" font-size="30">
+            <tspan x="25" y="100">до</tspan>
+        </text>
+    </g>
+</svg>

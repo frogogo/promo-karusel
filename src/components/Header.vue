@@ -2,7 +2,7 @@
   <header class="bg-cover"
           :style="{ background: 'center / cover no-repeat url(\'' + require('@/assets/images/header-bg.jpg') + '\')' }">
     <div class="container">
-      <div class="flex flex-col justify-between min-h-screen pt-12">
+      <div class="flex flex-col justify-between min-h-screen pt-12 pb-2">
         <nav class="flex justify-between items-center mb-12 md:mb-24 lg:mb-32">
           <a href="/" class="mr-16">
             <img :src="require('@/assets/images/logo-karusel.svg')" alt="Гипермаркет Карусель">
@@ -32,8 +32,8 @@
             <img :src="require('@/assets/images/header-img.png')" class="mb-8 md:mb-0" alt="Промо">
           </div>
         </div>
-        <img :src="require('@/assets/images/icon-down.svg')" class="hidden md:block mx-auto pb-10 lg:pb-20" alt="Вниз">
-    </div>
+        <img :src="require('@/assets/images/icon-down.svg')" class="hidden md:block mx-auto" alt="Вниз">
+      </div>
     </div>
   </header>
 </template>
@@ -41,13 +41,7 @@
 <script>
 
 export default {
-  name: 'Header',
-  components: {},
-  data() {
-    return {
-
-    }
-  }
+  name: 'Header'
 }
 </script>
 
@@ -65,7 +59,7 @@ export default {
   bottom: -.7rem;
   left: calc(50% - 1.25rem);
 
-  @apply w-10 h-1 bg-primary absolute rounded flex;
+  @apply w-10 h-1 bg-primary-300 absolute rounded flex;
 }
 
 @media (min-width: 1024px) {

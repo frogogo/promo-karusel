@@ -1,21 +1,28 @@
 <template>
   <div id="app">
     <Header/>
+    <HowTo/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import HowTo from './components/HowTo.vue'
 
 export default {
   name: 'app',
   components: {
-    Header
+    Header, HowTo
   }
 }
 </script>
 
 <style lang="css">
+body {
+  min-width: 320px;
+}
+
+/* Fonts */
 @font-face {
   font-family: 'CircleThin';
   src: url('~@/assets/fonts/Circe-Thin.woff2') format('woff2');
