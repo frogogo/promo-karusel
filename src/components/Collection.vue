@@ -112,10 +112,10 @@ export default {
     }
   },
   methods: {
-    previousSlide({ target }) {
+    previousSlide() {
       this.orderOfCollectionImages = arrayMove(this.orderOfCollectionImages, -1, 0)
     },
-    nextSlide({ target }) {
+    nextSlide() {
       this.orderOfCollectionImages = arrayMove(this.orderOfCollectionImages, 0, -1)
     }
   }
