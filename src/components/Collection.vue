@@ -1,7 +1,7 @@
 <template>
   <div
     :class="
-      'flex flex-col items-center mb-48 collection' +
+      'flex flex-col items-center mb-32 md:mb-48 collection' +
         (collection.positionLeft ? ' md:flex-row' : ' md:flex-row-reverse')">
     <div
       :class="'flex flex-1' +
@@ -56,7 +56,7 @@
       </h3>
       <ul class="collection-list text-regular flex flex-wrap mb-5">
         <li
-          :class="collection.description.length > 6 ? 'w-1/2' : 'w-full'"
+          :class="collection.description.length > 6 ? 'w-full sm:w-1/2' : 'w-full'"
           v-for="paragraph in collection.description"
         >
           {{ paragraph }}
@@ -64,7 +64,7 @@
       </ul>
       <p v-if="collection.caption" class="text-regular text-white mb-5">{{ collection.caption }}</p>
       <div class="flex items-center text-white">
-        <img
+        <inline-svg
           :src="require(`@/assets/images/im-sticker-${collection.stickers}.svg`)"
           class="mr-5"
           alt=""

@@ -5,7 +5,7 @@
       <div class="flex flex-col justify-between min-h-screen pt-12 pb-2">
         <nav class="flex justify-between items-center mb-12 md:mb-24 lg:mb-32">
           <a href="/" class="mr-16">
-            <img :src="require('@/assets/images/logo-karusel.svg')" alt="Гипермаркет Карусель">
+            <img :src="require('@/assets/images/logo-karusel.svg')" alt="Гипермаркет Карусель"/>
           </a>
           <div class="text-regular hidden md:block">
             <a href="#" class="navigation-link">Как принять участие?</a>
@@ -18,7 +18,7 @@
           <div class="flex-1 md:mr-20">
             <h1 class="mb-5 text-white font-bold text-2xl lg:text-4xl">
               <span class="mr-2 text-extra-bold">Продукция итальянского <br>бренда</span>
-              <img :src="require('@/assets/images/logo-ducaticorse.svg')" class="inline align-baseline w-2/3 md:w-auto mr-2" alt="Дукати Корсе">
+              <img :src="require('@/assets/images/logo-ducaticorse.svg')" class="inline align-baseline w-2/3 md:w-auto mr-2" alt="Дукати Корсе"/>
               <span class="align-top">*</span>
             </h1>
             <div class="text-white text-lg">
@@ -29,10 +29,10 @@
             </div>
           </div>
           <div class="flex-1">
-            <img :src="require('@/assets/images/header-img.png')" class="mb-8 md:mb-0" alt="Промо">
+            <img :src="require('@/assets/images/header-img.png')" class="mb-8 md:mb-0" alt="Промо"/>
           </div>
         </div>
-        <img :src="require('@/assets/images/icon-down.svg')" class="hidden md:block mx-auto" alt="Вниз">
+        <img :src="require('@/assets/images/icon-down.svg')" class="hidden md:block mx-auto" alt="Вниз"/>
       </div>
     </div>
   </header>
