@@ -1,7 +1,7 @@
 <template>
   <div
     :class="
-      'flex flex-col items-center mb-32 collection' +
+      'flex flex-col items-center mb-48 collection' +
         (collection.positionLeft ? ' md:flex-row' : ' md:flex-row-reverse')">
     <div
       :class="'flex flex-1' +
