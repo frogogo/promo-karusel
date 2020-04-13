@@ -1,7 +1,7 @@
 <template>
   <div class="py-20 bg-secondary-500 -mt-1">
     <div class="container">
-      <h2 class="text-extra-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32">
+      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32">
         Как принять <br> участие в акции?
       </h2>
       <div class="lg:flex lg:justify-between mb-10 md:mb-32">
@@ -16,10 +16,10 @@
         </div>
       </div>
       <div class="flex flex-col sm:flex-row justify-center">
-        <a href="#" class="btn btn-primary text-extra-bold sm:mr-5 mb-6 sm:mb-0">
+        <a href="#" class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0">
           Правила акции
         </a>
-        <a href="#" class="btn btn-white text-extra-bold">
+        <a href="#" class="btn btn-white text-bold">
           Скачать буклет
         </a>
       </div>
@@ -59,7 +59,7 @@ export default {
 
 <style scoped lang="css">
 .btn {
-  @apply py-3 px-5 border uppercase rounded-full text-white text-sm text-center transition-all duration-150;
+  @apply py-2 px-5 border uppercase rounded-full text-white text-sm text-center transition-all duration-150;
 }
 
 .btn-primary {

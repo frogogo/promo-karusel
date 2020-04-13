@@ -1,25 +1,32 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <Header/>
     <HowTo/>
+    <Collections/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import HowTo from './components/HowTo.vue'
+import Collections from './components/Collections.vue'
 
 export default {
   name: 'app',
   components: {
-    Header, HowTo
+    Header, HowTo, Collections
   }
 }
 </script>
 
 <style lang="css">
+
 body {
   min-width: 320px;
+}
+
+button {
+  outline: 0;
 }
 
 /* Fonts */
@@ -84,5 +91,9 @@ body {
 
 .text-carousel-small {
   font-family: 'CarouselSmall';
+}
+
+[v-cloak] {
+  @apply hidden;
 }
 </style>

@@ -1,0 +1,186 @@
+<template>
+  <div class="pt-20 pb-32 bg-secondary-500">
+    <div class="container">
+      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-32">
+        Коллекция Ducati Corse
+      </h2>
+      <div
+        v-for="collection in collections"
+        :class="
+          'flex flex-col items-center mb-32 collection' +
+            (collection.positionLeft ? ' md:flex-row' : ' md:flex-row-reverse')">
+        <div
+          :class="'flex flex-1' +
+              (collection.positionLeft
+                ? ' md:flex-row'
+                : ' md:flex-row-reverse')">
+          <div class="hidden lg:block">
+            <div class="disc disc--sm" style="top: -3rem">
+              <img
+                :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[0]}.png`)"
+                class="disc__img disc__img--top"
+                :alt="collection.title"
+              />
+            </div>
+            <div class="disc disc--sm" style="bottom: -3rem">
+              <img
+                :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[1]}.png`)"
+                class="disc__img disc__img--bottom"
+                :alt="collection.title"
+              />
+            </div>
+          </div>
+          <div
+            class="disc--lg mb-16 lg:mb-0 flex items-center relative"
+          >
+            <div class="disc disc--lg relative">
+              <img
+                :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[2]}.png`)"
+                class="disc__img disc__img--center"
+                :alt="collection.title"
+              />
+            </div>
+            <a href="#"
+               class="arrow left-arrow"
+               @mouseover="iconLeftHovered = true"
+               @mouseout="iconLeftHovered = false"
+               @click.prevent="previousSlide">
+              <img :src="iconLeftHovered ? iconLeftActive : iconLeft" alt="" />
+            </a>
+            <a href="#"
+               class="arrow right-arrow"
+               @mouseover="iconRightHovered = true"
+               @mouseout="iconRightHovered = false"
+               @click.prevent="nextSlide">
+              <img :src="iconRightHovered ? iconRightActive : iconRight" alt="" />
+            </a>
+          </div>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-bold text-xl md:text-4xl text-white mb-5">
+            {{ collection.title }}
+          </h3>
+          <ul class="collection-list text-regular flex flex-wrap mb-5">
+            <li
+              :class="collection.description.length > 6 ? 'w-1/2' : 'w-full'"
+              v-for="paragraph in collection.description"
+            >
+              {{ paragraph }}
+            </li>
+          </ul>
+          <p v-if="collection.caption" class="text-regular text-white mb-5">{{ collection.caption }}</p>
+          <div class="flex items-center text-white">
+            <img
+              :src="require(`@/assets/images/im-sticker-${collection.stickers}.svg`)"
+              class="mr-5"
+              alt=""
+            />
+            <div class="flex items-baseline flex-1">
+              <div class="flex">
+                <span class="text-5xl sm:text-6xl text-carousel-regular">
+                  {{ collection.discountedPrice }}
+                </span>
+                <span class="text-4xl text-carousel-regular self-start">00</span>
+              </div>
+              <span class="w-1 h-12 bg-white mx-4"></span>
+              <div class="flex flex-col relative flex-1 ml-3">
+                <span class="text-bold text-xs uppercase absolute top-0 -mt-2">
+                  Цена без наклеек
+                </span>
+                <span class="text-carousel-regular text-4xl mr-1">
+                  {{ collection.price }}
+                  <small class="text-3xl">₽</small>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Collections from '@/data/collections'
+import arrayMove from 'array-move'
+
+export default {
+  name: 'Collections',
+  data() {
+    return {
+      collections: Collections,
+      orderOfCollectionImages: [2,3,1],
+      iconLeft: require('@/assets/images/icon-left.svg'),
+      iconLeftActive: require('@/assets/images/icon-left-active.svg'),
+      iconRight: require('@/assets/images/icon-right.svg'),
+      iconRightActive: require('@/assets/images/icon-right-active.svg'),
+      iconLeftHovered: false,
+      iconRightHovered: false
+    }
+  },
+  methods: {
+    previousSlide({ target }) {
+      this.orderOfCollectionImages = arrayMove(this.orderOfCollectionImages, -1, 0)
+    },
+    nextSlide({ target }) {
+      this.orderOfCollectionImages = arrayMove(this.orderOfCollectionImages, 0, -1)
+    }
+  }
+}
+</script>
+
+<style scoped lang="css">
+.collection-list {
+  @apply list-disc ml-5 p-0;
+}
+
+.collection-list li {
+  @apply text-base text-white;
+}
+
+.disc {
+  @apply bg-secondary-300 rounded-lg;
+
+  transform: rotate(45deg);
+}
+
+.disc--sm {
+  @apply w-32 h-32 relative;
+}
+
+.disc--lg {
+  @apply w-48 h-48;
+}
+
+.arrow {
+  transition: all 300ms ease-in;
+  @apply absolute w-10 h-10;
+}
+
+.left-arrow {
+  left: -1.5rem;
+
+  background-image: url('')
+}
+
+.right-arrow {
+  right: -1.5rem;
+}
+
+@media (min-width: 640px) {
+  .disc--lg {
+    @apply w-64 h-64;
+  }
+}
+
+@media (min-width: 1280px) {
+  .disc--lg {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .disc--sm {
+    @apply w-40 h-40;
+  }
+}
+</style>
