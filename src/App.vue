@@ -1,5 +1,8 @@
 <template>
-  <div id="app" v-cloak>
+  <div v-if="loading" class="flex h-screen items-center justify-center bg-secondary-500">
+    <img :src="require('@/assets/images/loader.svg')"/>
+  </div>
+  <div v-else id="app" v-cloak>
     <Header/>
     <HowTo/>
     <Collections/>
@@ -13,8 +16,16 @@ import Collections from './components/Collections.vue'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      loading: true
+    }
+  },
   components: {
     Header, HowTo, Collections
+  },
+  mounted() {
+    setTimeout(() => this.loading = false, 1000)
   }
 }
 </script>
