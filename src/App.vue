@@ -48,6 +48,16 @@ body {
   src: url('~@/assets/fonts/Circe-ExtraBold.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'CarouselRegular';
+  src: url('~@/assets/fonts/Carousel-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'CarouselSmall';
+  src: url('~@/assets/fonts/Carousel-Small.woff2') format('woff2');
+}
+
 .text-thin {
   font-family: 'CircleThin';
 }
@@ -66,5 +76,13 @@ body {
 
 .text-extra-bold {
   font-family: 'CircleExtraBold';
+}
+
+.text-carousel-regular {
+  font-family: 'CarouselRegular';
+}
+
+.text-carousel-small {
+  font-family: 'CarouselSmall';
 }
 </style>
