@@ -11,7 +11,9 @@
       <div class="flex flex-col md:flex-row mb-12">
         <div class="flex-1 md:mr-20 overflow-y-scroll mb-8 md:mb-0" style="height: 560px">
           <div v-for="participant in this.participants">
-            <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-grey cursor-pointer" @click="asd">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-grey cursor-pointer"
+                 @click="clickedParticipantAddress = participant.address; setCenterToPlacemark()"
+                 :data-address="participant.address">
               <span class="text-lg text-white text-bold mr-3">г. {{ participant.city }} </span>
               <span class="text-lg text-regular text-grey">{{ participant.address }}</span>
             </div>
@@ -50,9 +52,11 @@ export default {
           version: '2.1'
         },
         coords: [48.745056, 44.518565],
-        zoom: 5
+        zoom: 5,
+        map: Object
       },
-      participants: ParticipantsData
+      participants: ParticipantsData,
+      clickedParticipantAddress: String
     }
   },
   async mounted() {
@@ -72,7 +76,7 @@ export default {
     await loadYmap({ ...this.yMaps.settings, debug: true })
 
     ymaps.ready(mapInit => {
-      const yandexMap = new ymaps.Map('map',
+      this.yMaps.map = new ymaps.Map('map',
         {
           center: this.yMaps.coords,
           zoom: this.yMaps.zoom
@@ -87,17 +91,17 @@ export default {
         const placemark = new ymaps.Placemark(marker.coords, {}, {
             iconLayout: 'default#image',
             iconImageHref: require('@/assets/images/point-map.svg'),
-            iconImageSize: [48, 48],
+            iconImageSize: [70, 70],
             iconImageOffset: [-24, -24],
             iconContentOffset: [15, 15],
-            iden: marker.address
+            id: marker.address
         })
 
-        yandexMap.geoObjects.add(placemark)
+        this.yMaps.map.geoObjects.add(placemark)
 
         // Add events for placemarks
         placemark.events.add ('click', () => {
-          yandexMap.setCenter(marker.coords, 12)
+          this.yMaps.map.setCenter(marker.coords, 12)
         })
       })
     })
@@ -123,8 +127,16 @@ export default {
         console.warn('Error:', e.message)
       }
     },
-    asd() {
-      console.log(map)
+    setCenterToPlacemark() {
+      let coords = []
+
+      this.yMaps.map.geoObjects.each(geoObject => {
+        if (geoObject.options.get('id') === this.clickedParticipantAddress) {
+          coords = geoObject.geometry.getCoordinates()
+        }
+      })
+
+      this.yMaps.map.setCenter(coords, 12)
     }
   }
 }
