@@ -77,7 +77,7 @@
               Цена без наклеек
             </span>
             <div class="flex items-center">
-              <span class="text-4xl mr-1">
+              <span class="text-4xl text-carousel-regular mr-1">
                 {{ collection.price }}
               </span>
               <small class="text-3xl">₽</small>
