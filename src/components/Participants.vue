@@ -9,16 +9,16 @@
         Гипермаркеты — участники акции
       </h2>
       <div class="flex flex-col md:flex-row mb-12">
-        <div class="flex-1 mr-20 overflow-y-scroll" style="height: 560px">
+        <div class="flex-1 md:mr-20 overflow-y-scroll mb-8 md:mb-0" style="height: 560px">
+          <div v-for="participant in this.participants">
+            <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-grey cursor-pointer" @click="asd">
+              <span class="text-lg text-white text-bold mr-3">г. {{ participant.city }} </span>
+              <span class="text-lg text-regular text-grey">{{ participant.address }}</span>
+            </div>
+          </div>
         </div>
         <div class="flex-1 rounded-lg overflow-hidden">
-          <yandex-map :coords="coords" zoom="10" :settings="settings">
-            <ymap-marker
-              :coords="coords"
-              marker-id="123123"
-              marker-type="placemark"
-            />
-          </yandex-map>
+          <div id="map"></div>
         </div>
       </div>
 
@@ -34,61 +34,104 @@
 </template>
 
 <script>
-import { yandexMap, ymapMarker, loadYmap } from 'vue-yandex-maps'
+import { loadYmap } from 'vue-yandex-maps'
 import Contacts from '@/components/Contacts.vue'
+import ParticipantsData from '@/data/participantsData.js'
 
 export default {
   name: 'Participants',
-  components: { yandexMap, ymapMarker, Contacts },
+  components: { Contacts },
   data() {
     return {
-      settings: {
-        apiKey: 'b7edca89-0215-4a38-b339-d2426d76d2ee',
-        lang: 'ru_RU',
-        coordorder: 'latlong',
-        version: '2.1'
+      yMaps: {
+        settings: {
+          apiKey: 'b7edca89-0215-4a38-b339-d2426d76d2ee',
+          lang: 'ru_RU',
+          version: '2.1'
+        },
+        coords: [48.745056, 44.518565],
+        zoom: 5
       },
-      coords: [54.82896654088406, 39.831893822753904],
-      placemarks: [
+      participants: ParticipantsData
+    }
+  },
+  async mounted() {
+    let index = 0
+
+    // Geocoder
+    for (const participant of this.participants) {
+      const request = await this.request(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=${this.yMaps.settings.apiKey}&geocode=${participant.address}`)
+      const position = request.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
+      const coords = position.split(' ').reverse()
+
+      this.participants[index].coords = coords
+      index++
+    }
+
+    // Load Yandex map
+    await loadYmap({ ...this.yMaps.settings, debug: true })
+
+    ymaps.ready(mapInit => {
+      const yandexMap = new ymaps.Map('map',
         {
-          coords: [54.82896654088406, 39.831893822753904],
-          properties: {
-            balloonContentBody: 'asdfd',
-            balloonContentFooter: '1',
-            balloonContentHeader: '1'
-          },
-          clusterName: '1',
-          markerId: '1'
+          center: this.yMaps.coords,
+          zoom: this.yMaps.zoom
         },
         {
-          coords: [54.82796654088306, 39.831893822753904],
-          properties: {
-            balloonContentBody: 'asdfasdf',
-            balloonContentFooter: '1',
-            balloonContentHeader: '1'
-          },
-          clusterName: '1',
-          markerId: '2'
-        },
-        {
-          coords: [54.82996654088506, 39.831893822753904],
-          properties: {
-            balloonContentBody: 'asdfasdf',
-            balloonContentFooter: '1',
-            balloonContentHeader: '1'
-          },
-          clusterName: '1',
-          markerId: '3'
+          searchControlProvider: 'yandex#search'
         }
-      ],
-      layout: '<div>{{ properties.balloonContentHeader }}</div><div>{{ properties.balloonContentBody }}</div><div>{{ properties.balloonContentFooter }}</div>'
+      )
+
+      // Add placemarks
+      this.participants.map(marker => {
+        const placemark = new ymaps.Placemark(marker.coords, {}, {
+            iconLayout: 'default#image',
+            iconImageHref: require('@/assets/images/point-map.svg'),
+            iconImageSize: [48, 48],
+            iconImageOffset: [-24, -24],
+            iconContentOffset: [15, 15],
+            iden: marker.address
+        })
+
+        yandexMap.geoObjects.add(placemark)
+
+        // Add events for placemarks
+        placemark.events.add ('click', () => {
+          yandexMap.setCenter(marker.coords, 12)
+        })
+      })
+    })
+  },
+  methods: {
+    async request(url, method = 'GET', data = null) {
+      try {
+        const headers = {}
+        let body
+
+        if (data) {
+          headers['Content-Type'] = 'application/json'
+          body = JSON.stringify(data)
+        }
+
+        const response = await fetch(url, {
+          method,
+          headers,
+          body
+        })
+        return await response.json()
+      } catch (e) {
+        console.warn('Error:', e.message)
+      }
+    },
+    asd() {
+      console.log(map)
     }
   }
 }
 </script>
 
 <style scoped lang="css">
-.ymap-container {
-  height: 560px;
+#map {
+  height: 35rem
 }
 </style>
