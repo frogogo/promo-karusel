@@ -22,7 +22,7 @@
           </a>
         </nav>
 
-        <div class="flex items-center pb-12">
+        <div class="flex items-center pb-32">
           <img :src="require('@/assets/images/icon-phone.svg')" />
           <div class="flex flex-col items-center ml-3">
             <span class="uppercase text-grey text-bold" style="font-size: 0.65rem">Бесплатная горячая линия</span>
