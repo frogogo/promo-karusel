@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-cover relative"
+  <header class="bg-cover"
           :style="{ background: 'center / cover no-repeat url(\'' + require('@/assets/images/header-bg.jpg') + '\')' }">
     <div class="container">
       <div class="flex flex-col justify-between min-h-screen pt-8 md:pt-12 pb-2">
@@ -15,21 +15,27 @@
                {{ link.name }}
             </a>
           </nav>
-          <MobileMenu :navigationLinks="navigationLinks"/>
+          <MobileMenu v-if="windowWidth < 768" :navigationLinks="navigationLinks"/>
         </nav>
 
         <div class="flex flex-col-reverse items-center md:flex-row mb-12 lg:mb-24">
-          <div class="flex-1 md:mr-20">
+          <div class="flex-1 md:mr-20 ">
             <h1 class="mb-5 text-white font-bold text-2xl lg:text-4xl">
               <span class="mr-2 text-extra-bold">Продукция итальянского <br>бренда</span>
               <img :src="require('@/assets/images/logo-ducaticorse.svg')" class="inline align-baseline w-2/3 md:w-auto mr-2" alt="Дукати Корсе"/>
               <span class="align-top">*</span>
             </h1>
-            <div class="text-white text-lg">
+            <div class="text-white text-lg" :class="(descriptionCompact && windowWidth < 768) && 'truncate-3 h-20'">
               <p class="mb-5 text-regular">Компания Ducati основана в 1926 году в Болонье (Италия). Изначально компания занималась выпуском электротехнической продукции, а сейчас производит известные во всем мире гоночные мотоциклы.</p>
               <p class="mb-5 text-regular">Бренд Ducati Corse – это синоним безупречного стиля, престижа и высоких достижений.</p>
               <p class="mb-5 text-regular">Бренд Ducati Corse предназначен не только для ценителей бренда, но и для уверенных в себе людей, воодушевленных своей мечтой, нацеленных на победу, стремящихся изменить жизнь к лучшему.</p>
               <p>* Дукати Корсе</p>
+            </div>
+            <div v-if="descriptionCompact && windowWidth < 768" class="md:hidden mt-5">
+              <button class="flex items-center" @click="descriptionCompact = false">
+                <span class="text-white text-regular mr-3">Смотреть всё</span>
+                <img :src="require('@/assets/images/icon-arrow-down.svg')">
+              </button>
             </div>
           </div>
           <div class="flex-1">
@@ -65,8 +71,12 @@ export default {
           name: 'Гипермаркеты',
           url: '#participants'
         }
-      ]
+      ],
+      descriptionCompact: Boolean
     }
+  },
+  mounted() {
+    this.descriptionCompact = this.windowWidth < 768
   }
 }
 </script>
@@ -87,6 +97,20 @@ export default {
 
   @apply w-10 h-1 bg-primary-300 absolute rounded flex;
 }
+
+.header-description {
+  @apply text-white text-lg;
+}
+
+.truncate-3 {
+  @apply overflow-hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
 
 @media (min-width: 1024px) {
   .navigation-link {
