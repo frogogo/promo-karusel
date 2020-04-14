@@ -135,6 +135,10 @@ export default {
   transform: rotate(45deg);
 }
 
+.disc__img {
+  transform: rotate(-45deg);
+}
+
 .disc--sm {
   @apply w-32 h-32 relative;
 }
