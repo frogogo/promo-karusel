@@ -3,7 +3,7 @@
     <img :src="require('@/assets/images/icon-menu.svg')" class="h-full"/>
   </button>
   <div v-else
-       class="bg-cover absolute w-full h-full top-0 pt-8 h-screen left-0"
+       class="bg-cover absolute w-full h-full z-50 top-0 pt-8 h-screen left-0"
        v-scroll-lock="isModalOpened"
        :style="{ background: 'left / cover no-repeat url(\'' + require('@/assets/images/header-bg-sm.jpg') + '\')' }">
     <div class="container">

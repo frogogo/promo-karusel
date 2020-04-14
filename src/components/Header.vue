@@ -15,7 +15,9 @@
                {{ link.name }}
             </a>
           </nav>
-          <MobileMenu v-if="windowWidth < 768" :navigationLinks="navigationLinks"/>
+          <div class="md:hidden">
+            <MobileMenu :navigationLinks="navigationLinks"/>
+          </div>
         </nav>
 
         <div class="flex flex-col-reverse items-center md:flex-row md:mb-12 lg:mb-24">
