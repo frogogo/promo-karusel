@@ -2,13 +2,13 @@
   <div
     :class="
       'flex flex-col items-center mb-32 md:mb-48 collection' +
-        (collection.positionLeft ? ' md:flex-row' : ' md:flex-row-reverse')">
+        (collection.positionLeft ? ' lg:flex-row' : ' lg:flex-row-reverse')">
     <div
       :class="'flex flex-1' +
           (collection.positionLeft
-            ? ' md:flex-row'
-            : ' md:flex-row-reverse')">
-      <div class="hidden lg:block">
+            ? ' lg:flex-row'
+            : ' lg:flex-row-reverse')">
+      <div class="hidden md:block">
         <div class="disc disc--sm" style="top: -3rem">
           <img
             :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[0]}.png`)"
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div
-        class="disc--lg mb-16 lg:mb-0 flex items-center relative"
+        class="disc--lg mb-32 lg:mb-0 flex items-center relative"
       >
         <div class="disc disc--lg relative">
           <img

@@ -1,23 +1,21 @@
 <template>
-  <header class="bg-cover"
+  <header class="bg-cover relative"
           :style="{ background: 'center / cover no-repeat url(\'' + require('@/assets/images/header-bg.jpg') + '\')' }">
     <div class="container">
-      <div class="flex flex-col justify-between min-h-screen pt-12 pb-2">
+      <div class="flex flex-col justify-between min-h-screen pt-8 md:pt-12 pb-2">
         <nav class="flex justify-between items-center mb-12 md:mb-24 lg:mb-32">
           <a href="/" class="h-6 md:h-12 mr-16">
             <img :src="require('@/assets/images/logo-karusel.svg')" class="h-full" alt="Гипермаркет Карусель"/>
           </a>
-          <div class="text-regular hidden md:block">
+          <nav class="text-regular hidden md:block">
             <a v-for="link in navigationLinks"
                class="navigation-link"
                :href="link.url"
                v-smooth-scroll="{ duration: 300, offset: -50}">
                {{ link.name }}
             </a>
-          </div>
-          <button class="md:hidden py-4">
-            <img :src="require('@/assets/images/icon-menu.svg')" />
-          </button>
+          </nav>
+          <MobileMenu :navigationLinks="navigationLinks"/>
         </nav>
 
         <div class="flex flex-col-reverse items-center md:flex-row mb-12 lg:mb-24">
@@ -45,12 +43,15 @@
 </template>
 
 <script>
+import MobileMenu from '@/components/MobileMenu.vue'
 
 export default {
   name: 'Header',
+  components: {
+    MobileMenu
+  },
   data() {
     return {
-      isMobileHeaderOpened: false,
       navigationLinks: [
         {
           name: 'Как принять участие?',
