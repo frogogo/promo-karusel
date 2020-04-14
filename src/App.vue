@@ -101,4 +101,8 @@ button {
 [v-cloak] {
   @apply hidden;
 }
+
+#app {
+  @apply overflow-x-hidden;
+}
 </style>

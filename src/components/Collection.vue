@@ -132,13 +132,14 @@ export default {
 }
 
 .disc {
-  @apply bg-secondary-300 rounded-lg overflow-hidden;
+  @apply bg-secondary-300;
 
   transform: rotate(45deg);
+  border-radius: 1.5rem;
 }
 
 .disc__img {
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) scale(1.35);
 }
 
 .disc--sm {
