@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-cover"
-          :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/header-bg.jpg') + '\')' }">
+  <header class="bg-cover lg:min-h-screen"
+          :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/header-bg-max.jpg') + '\')' }">
     <div class="container">
       <div class="flex flex-col justify-between lg:min-h-screen pt-8 md:pt-12 pb-2">
         <nav class="flex justify-between items-center mb-12 md:mb-24 lg:mb-32">
@@ -42,7 +42,7 @@
             <img :src="require('@/assets/images/header-img.png')" class="mb-8 md:mb-0" alt="Промо"/>
           </div>
         </div>
-        <a href="#how-to" class="flex-1" v-smooth-scroll="{ duration: 300, offset: -50}">
+        <a href="#how-to" v-smooth-scroll="{ duration: 300, offset: -50}">
           <img :src="require('@/assets/images/icon-down.svg')" class="hidden md:block mx-auto" alt="Вниз"/>
         </a>
       </div>

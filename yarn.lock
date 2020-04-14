@@ -6454,6 +6454,11 @@ vue-window-size@^0.2.5:
   dependencies:
     vue "^2.5.22"
 
+vue-yandex-maps@^0.10.7:
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/vue-yandex-maps/-/vue-yandex-maps-0.10.7.tgz#5e9596d9a7fad3d853cb5daeb8b907d6153a575e"
+  integrity sha512-3KBe5ljz5efSLQwQX7tY4zqQ8X22UuMtS4hpxw752Ar7AsHcAkZyCCSuy2F3kGUdaeKoPjaihZGFozCle6RxMg==
+
 vue2-smooth-scroll@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/vue2-smooth-scroll/-/vue2-smooth-scroll-1.3.0.tgz#0aa2ca95c73807959f84ea886243df600d3b383a"

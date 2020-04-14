@@ -3,9 +3,9 @@
     <img :src="require('@/assets/images/icon-menu.svg')" />
   </button>
   <div v-else
-       class="bg-cover min-h-screen absolute w-full h-full top-0 left-0"
+       class="bg-cover absolute w-full h-full top-0 left-0"
        v-scroll-lock="isModalOpened"
-       :style="{ background: 'left / cover no-repeat url(\'' + require('@/assets/images/header-bg-sm.jpg') + '\')' }">
+       :style="{ background: 'left / cover no-repeat url(\'' + require('@/assets/images/header-bg-sm.jpg') + '\')', height: windowHeight }">
     <div class="container">
       <div class="flex flex-col min-h-screen items-center justify-between">
         <button class="py-4 self-end" @click="isModalOpened = false">
@@ -22,22 +22,20 @@
           </a>
         </nav>
 
-        <div class="flex items-center pb-32">
-          <img :src="require('@/assets/images/icon-phone.svg')" />
-          <div class="flex flex-col items-center ml-3">
-            <span class="uppercase text-grey text-bold" style="font-size: 0.65rem">Бесплатная горячая линия</span>
-            <a href="tel:+78005550708" class="text-white text-bold text-2xl">8 800 555 07 08</a>
-          </div>
-        </div>
+        <Contacts class="pb-32" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Contacts from '@/components/Contacts.vue'
 
 export default {
   name: 'MobileMenu',
+  components: {
+    Contacts
+  },
   props: {
     navigationLinks: Array
   },
