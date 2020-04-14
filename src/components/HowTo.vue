@@ -72,7 +72,7 @@ export default {
 }
 
 .btn-primary:hover {
-  @apply bg-primary-300 border-primary-300;
+  @apply bg-white text-primary-500 border-white;
 }
 
 .btn-white:hover {

@@ -1,8 +1,5 @@
 <template>
-  <div v-if="loading" class="flex h-screen items-center justify-center bg-secondary-500">
-    <img :src="require('@/assets/images/loader.svg')" />
-  </div>
-  <div v-else id="app" v-cloak>
+  <div id="app" v-cloak>
     <Header />
     <HowTo />
     <Collections />
@@ -18,19 +15,11 @@ import Participants from './components/Participants.vue'
 
 export default {
   name: 'app',
-  data() {
-    return {
-      loading: true
-    }
-  },
   components: {
     Header,
     HowTo,
     Collections,
     Participants
-  },
-  mounted() {
-    setTimeout(() => this.loading = false, 1000)
   }
 }
 </script>
