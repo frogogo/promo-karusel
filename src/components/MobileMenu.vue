@@ -15,13 +15,15 @@
           <a v-for="link in navigationLinks"
              class="navigation-link mb-5"
              :href="link.url"
-             @click="isModalOpened = false"
+             @click="isModalOpened = false ; toggleBodyScrolling('')"
              v-smooth-scroll="{ duration: 300, offset: -50}">
              {{ link.name }}
           </a>
         </nav>
 
-        <Contacts class="pb-32" />
+        <div class="pb-32">
+          <Contacts />
+        </div>
       </div>
     </div>
   </div>
