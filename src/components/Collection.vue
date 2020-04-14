@@ -34,20 +34,20 @@
             :alt="collection.title"
           />
         </div>
-        <a href="#"
+        <button
            class="arrow left-arrow"
            @mouseover="iconLeftHovered = true"
            @mouseout="iconLeftHovered = false"
            @click.prevent="previousSlide">
           <img :src="iconLeftHovered ? iconLeftActive : iconLeft" alt="" />
-        </a>
-        <a href="#"
+        </button>
+        <button
            class="arrow right-arrow"
            @mouseover="iconRightHovered = true"
            @mouseout="iconRightHovered = false"
            @click.prevent="nextSlide">
           <img :src="iconRightHovered ? iconRightActive : iconRight" alt="" />
-        </a>
+        </button>
       </div>
     </div>
     <div class="flex-1">
@@ -146,14 +146,11 @@ export default {
 }
 
 .arrow {
-  transition: all 300ms ease-in;
-  @apply absolute w-10 h-10;
+  @apply absolute outline-none p-2;
 }
 
 .left-arrow {
   left: -1.5rem;
-
-  background-image: url('')
 }
 
 .right-arrow {

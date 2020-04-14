@@ -1,11 +1,12 @@
 <template>
   <div v-if="loading" class="flex h-screen items-center justify-center bg-secondary-500">
-    <img :src="require('@/assets/images/loader.svg')"/>
+    <img :src="require('@/assets/images/loader.svg')" />
   </div>
   <div v-else id="app" v-cloak>
-    <Header/>
-    <HowTo/>
-    <Collections/>
+    <Header />
+    <HowTo />
+    <Collections />
+    <Participants />
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import Header from './components/Header.vue'
 import HowTo from './components/HowTo.vue'
 import Collections from './components/Collections.vue'
+import Participants from './components/Participants.vue'
 
 export default {
   name: 'app',
@@ -22,7 +24,10 @@ export default {
     }
   },
   components: {
-    Header, HowTo, Collections
+    Header,
+    HowTo,
+    Collections,
+    Participants
   },
   mounted() {
     setTimeout(() => this.loading = false, 1000)

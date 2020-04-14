@@ -1,7 +1,8 @@
 <template>
   <div class="py-20 bg-secondary-500 -mt-1">
     <div class="container">
-      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32">
+      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32"
+          id="how-to">
         Как принять <br> участие в акции?
       </h2>
       <div class="lg:flex lg:justify-between mb-10 md:mb-32">

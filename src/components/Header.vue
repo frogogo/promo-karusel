@@ -4,14 +4,20 @@
     <div class="container">
       <div class="flex flex-col justify-between min-h-screen pt-12 pb-2">
         <nav class="flex justify-between items-center mb-12 md:mb-24 lg:mb-32">
-          <a href="/" class="mr-16">
-            <img :src="require('@/assets/images/logo-karusel.svg')" alt="Гипермаркет Карусель"/>
+          <a href="/" class="h-6 md:h-12 mr-16">
+            <img :src="require('@/assets/images/logo-karusel.svg')" class="h-full" alt="Гипермаркет Карусель"/>
           </a>
           <div class="text-regular hidden md:block">
-            <a href="#" class="navigation-link">Как принять участие?</a>
-            <a href="#" class="navigation-link">Коллекция</a>
-            <a href="#" class="navigation-link">Гипермаркеты</a>
+            <a v-for="link in navigationLinks"
+               class="navigation-link"
+               :href="link.url"
+               v-smooth-scroll="{ duration: 300, offset: -50}">
+               {{ link.name }}
+            </a>
           </div>
+          <button class="md:hidden py-4">
+            <img :src="require('@/assets/images/icon-menu.svg')" />
+          </button>
         </nav>
 
         <div class="flex flex-col-reverse items-center md:flex-row mb-12 lg:mb-24">
@@ -41,7 +47,26 @@
 <script>
 
 export default {
-  name: 'Header'
+  name: 'Header',
+  data() {
+    return {
+      isMobileHeaderOpened: false,
+      navigationLinks: [
+        {
+          name: 'Как принять участие?',
+          url: '#how-to'
+        },
+        {
+          name: 'Коллекции',
+          url: '#collections'
+        },
+        {
+          name: 'Гипермаркеты',
+          url: '#participants'
+        }
+      ]
+    }
+  }
 }
 </script>
 
