@@ -1,13 +1,8 @@
 <template>
-  <div
-    :class="
-      'flex flex-col items-center mb-32 md:mb-48 collection' +
-        (collection.positionLeft ? ' lg:flex-row' : ' lg:flex-row-reverse')">
-    <div
-      :class="'flex flex-1' +
-          (collection.positionLeft
-            ? ' lg:flex-row'
-            : ' lg:flex-row-reverse')">
+  <div class="flex flex-col items-center mb-32 md:mb-48 collection"
+       :class="collection.positionLeft ? ' lg:flex-row' : ' lg:flex-row-reverse'">
+    <div class="flex flex-1"
+         :class="collection.positionLeft ? ' lg:flex-row': ' lg:flex-row-reverse'">
       <div class="hidden md:block">
         <div class="disc disc--sm" style="top: -3rem">
           <img
@@ -25,7 +20,7 @@
         </div>
       </div>
       <div
-        class="disc--lg mb-32 lg:mb-0 flex items-center relative"
+        class="disc--lg mb-20 md:mb-32 lg:mb-0 flex items-center relative"
       >
         <div class="disc disc--lg relative">
           <img
@@ -123,6 +118,9 @@ export default {
 </script>
 
 <style scoped lang="css">
+.collections .collection:last-child {
+  @apply mb-0;
+}
 .collection-list {
   @apply list-disc ml-5 p-0;
 }

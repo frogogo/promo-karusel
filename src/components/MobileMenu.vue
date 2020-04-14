@@ -1,5 +1,5 @@
 <template>
-  <button v-if="!isModalOpened" class="md:hidden py-4" @click="isModalOpened = true">
+  <button v-if="!isModalOpened" class="py-4" @click="isModalOpened = true">
     <img :src="require('@/assets/images/icon-menu.svg')" />
   </button>
   <div v-else

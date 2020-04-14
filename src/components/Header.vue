@@ -18,7 +18,7 @@
           <MobileMenu v-if="windowWidth < 768" :navigationLinks="navigationLinks"/>
         </nav>
 
-        <div class="flex flex-col-reverse items-center md:flex-row mb-12 lg:mb-24">
+        <div class="flex flex-col-reverse items-center md:flex-row md:mb-12 lg:mb-24">
           <div class="flex-1 md:mr-20 ">
             <h1 class="mb-5 text-white font-bold text-2xl lg:text-4xl">
               <span class="mr-2 text-extra-bold">Продукция итальянского <br>бренда</span>
@@ -31,7 +31,7 @@
               <p class="mb-5 text-regular">Бренд Ducati Corse предназначен не только для ценителей бренда, но и для уверенных в себе людей, воодушевленных своей мечтой, нацеленных на победу, стремящихся изменить жизнь к лучшему.</p>
               <p>* Дукати Корсе</p>
             </div>
-            <div v-if="descriptionCompact && windowWidth < 768" class="md:hidden mt-5">
+            <div v-if="descriptionCompact && windowWidth < 768" class="mt-5">
               <button class="flex items-center" @click="descriptionCompact = false">
                 <span class="text-white text-regular mr-3">Смотреть всё</span>
                 <img :src="require('@/assets/images/icon-arrow-down.svg')">
