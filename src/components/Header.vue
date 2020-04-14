@@ -1,6 +1,6 @@
 <template>
   <header class="bg-cover lg:min-h-screen"
-          :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/header-bg-max.jpg') + '\')' }">
+          :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/header-bg.jpg') + '\')' }">
     <div class="container">
       <div class="flex flex-col justify-between lg:min-h-screen pt-8 md:pt-12 pb-2">
         <nav class="flex justify-between items-center mb-12 md:mb-24 lg:mb-32">

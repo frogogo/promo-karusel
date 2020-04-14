@@ -1,15 +1,15 @@
 <template>
-  <button v-if="!isModalOpened" class="py-4" @click="isModalOpened = true">
-    <img :src="require('@/assets/images/icon-menu.svg')" />
+  <button class="w-5 h-5" v-if="!isModalOpened" @click="isModalOpened = true">
+    <img :src="require('@/assets/images/icon-menu.svg')" class="h-full"/>
   </button>
   <div v-else
-       class="bg-cover absolute w-full h-full top-0 left-0"
+       class="bg-cover fixed w-full h-full top-0 pt-8 min-h-screen left-0"
        v-scroll-lock="isModalOpened"
        :style="{ background: 'left / cover no-repeat url(\'' + require('@/assets/images/header-bg-sm.jpg') + '\')', height: windowHeight }">
     <div class="container">
       <div class="flex flex-col min-h-screen items-center justify-between">
-        <button class="py-4 self-end" @click="isModalOpened = false">
-          <img :src="require('@/assets/images/icon-close.svg')" />
+        <button class="self-end w-5 h-5" @click="isModalOpened = false">
+          <img :src="require('@/assets/images/icon-close.svg')" class="h-full" />
         </button>
 
         <nav class="text-regular flex flex-col items-center">
