@@ -1,14 +1,13 @@
 <template>
-  <button class="w-5 h-5" v-if="!isModalOpened" @click="isModalOpened = true">
+  <button class="w-5 h-5" v-if="!isModalOpened" @click="openModal">
     <img :src="require('@/assets/images/icon-menu.svg')" class="h-full"/>
   </button>
   <div v-else
        class="bg-cover absolute w-full h-full z-50 top-0 pt-8 h-screen left-0"
-       v-scroll-lock="isModalOpened"
        :style="{ background: 'left / cover no-repeat url(\'' + require('@/assets/images/header-bg-sm.jpg') + '\')' }">
     <div class="container">
       <div class="flex flex-col min-h-screen items-center justify-between">
-        <button class="self-end w-5 h-5" @click="isModalOpened = false">
+        <button class="self-end w-5 h-5" @click="closeModal">
           <img :src="require('@/assets/images/icon-close.svg')" class="h-full" />
         </button>
 
@@ -44,6 +43,26 @@ export default {
       isModalOpened: Boolean
     }
   },
+  methods: {
+    toggleBodyScrolling(action) {
+     const elements = [document.body, document.documentElement]
+     const classes = ['overflow-hidden', 'relative', 'h-full']
+
+     elements.map(element => {
+       action === 'enable'
+        ? element.classList.add(...classes)
+        : element.classList.remove(...classes)
+     })
+   },
+   openModal() {
+    this.isModalOpened = true
+    this.toggleBodyScrolling('enable')
+   },
+   closeModal() {
+    this.isModalOpened = false
+    this.toggleBodyScrolling('disable')
+   }
+  },
   mounted() {
     this.isModalOpened = false
   }
@@ -52,7 +71,7 @@ export default {
 
 <style scoped lang="css">
 .navigation-link {
-  @apply text-white text-sm px-4 py-2 transition-all duration-150 relative;
+  @apply text-white text-lg px-4 py-2 transition-all duration-150 relative;
 }
 
 .navigation-link:hover {
