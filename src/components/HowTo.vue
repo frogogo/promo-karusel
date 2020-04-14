@@ -44,7 +44,7 @@ export default {
           number: '2',
           iconUrl: require('@/assets/images/im-step-sticker.svg'),
           title: 'Собирайте наклейки',
-          caption: '350 ₽ = 1 наклейка'
+          caption: '350 рублей = 1 наклейка'
         },
         {
           number: '3',

@@ -76,10 +76,12 @@
             <span class="text-bold text-xs uppercase absolute top-0 -mt-2">
               Цена без наклеек
             </span>
-            <span class="text-carousel-regular text-4xl mr-1">
-              {{ collection.price }}
+            <div class="flex items-center">
+              <span class="text-4xl mr-1">
+                {{ collection.price }}
+              </span>
               <small class="text-3xl">₽</small>
-            </span>
+            </div>
           </div>
         </div>
       </div>
