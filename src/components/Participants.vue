@@ -61,17 +61,17 @@ export default {
     }
   },
   async mounted() {
-    let index = 0
+    //let index = 0
 
     // Geocoder
-    for (const participant of this.participants) {
+    /* for (const participant of this.participants) {
       const request = await this.request(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=${this.yMaps.settings.apiKey}&geocode=${participant.address}`)
       const position = request.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
       const coords = position.split(' ').reverse()
 
       this.participants[index].coords = coords
       index++
-    }
+    } */
 
     // Load Yandex map
     await loadYmap({ ...this.yMaps.settings, debug: true })
