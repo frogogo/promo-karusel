@@ -11,12 +11,17 @@
       <div class="flex flex-col md:flex-row mb-12">
         <div class="participants md:flex-1 md:mr-16 overflow-y-scroll mb-8 md:mb-0 pr-5">
           <div v-for="participant in this.participants">
-            <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-secondary-100 cursor-pointer participant"
-                 @click="clickedParticipantAddress = participant.address; setCenterToPlacemark()"
-                 :data-address="participant.address">
-              <span class="text-lg text-white text-bold mr-3 truncate">{{ participant.district ? participant.district : 'г' }}. {{ participant.city }} </span>
-              <span class="text-lg text-regular text-grey truncate">{{ participant.address }}</span>
-              <span class="hidden md:flex flex-1 text-right"><img :src="require('@/assets/images/icon-arrow-down.svg')" class="arrow-right" /></span>
+            <div class="participant relative"
+                 :class="selectedAddress === participant.address && 'participant--active'"
+                 @click="selectedAddress = participant.address; selectParticipant()">
+              <span class="text-lg text-white text-bold mr-3 truncate">
+                {{ participant.district ? participant.district : 'г' }}. {{ participant.city }} </span>
+              <span class="text-lg text-regular text-grey truncate">
+                {{ participant.address }}
+              </span>
+              <span class="close-icon" @click.stop="selectedAddress = ''; initializeParticipants()">
+                <img :src="require('@/assets/images/icon-close.svg')" />
+              </span>
             </div>
           </div>
         </div>
@@ -27,10 +32,14 @@
 
       <div class="flex flex-col md:flex-row md:items-center md:justify-between pb-5 border-b border-grey">
         <Contacts />
-        <p class="md:ml-32 mt-5 mb:mt-0 flex-1 text-regular text-xs text-white">Подробную информации о товаре, порядке получения скидки, месте и сроках ее проведения можно узнать у организатора акции ООО «КЛР» (ИНН 7731452742) по телефону бесплатной «горячей линии» 8 800 555 07 08 в рабочие дни с 9:00 до 18:00 (время московское)</p>
+        <p class="md:ml-32 mt-5 mb:mt-0 flex-1 text-regular text-xs text-white">
+          Подробную информации о товаре, порядке получения скидки, месте и сроках ее проведения можно узнать у организатора акции ООО «КЛР» (ИНН 7731452742) по телефону бесплатной «горячей линии» 8 800 555 07 08 в рабочие дни с 9:00 до 18:00 (время московское)
+        </p>
       </div>
       <div class="py-5">
-        <span class="text-regular text-xs text-grey">Copyright © {{ new Date().getFullYear() }} KLR. Все права защищены.</span>
+        <span class="text-regular text-xs text-grey">
+          Copyright © {{ new Date().getFullYear() }} KLR. Все права защищены.
+        </span>
       </div>
     </div>
   </div>
@@ -52,30 +61,19 @@ export default {
           lang: 'ru_RU',
           version: '2.1'
         },
-        coords: [55.618181, 37.509568],
+        coords: [55.618181, 45.509568],
         zoom: 4,
         map: Object
       },
       participants: ParticipantsData,
-      clickedParticipantAddress: String
+      selectedAddress: String
     }
   },
   async mounted() {
-    //let index = 0
-
-    // Geocoder
-    /* for (const participant of this.participants) {
-      const request = await this.request(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=${this.yMaps.settings.apiKey}&geocode=${participant.address}`)
-      const position = request.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
-      const coords = position.split(' ').reverse()
-
-      this.participants[index].coords = coords
-      index++
-    } */
-
     // Load Yandex map
     await loadYmap({ ...this.yMaps.settings, debug: true })
 
+    // Init Yandex map
     ymaps.ready(mapInit => {
       this.yMaps.map = new ymaps.Map('map',
         {
@@ -87,24 +85,7 @@ export default {
         }
       )
 
-      // Add placemarks
-      this.participants.map(marker => {
-        const placemark = new ymaps.Placemark(marker.coords, {}, {
-            iconLayout: 'default#image',
-            iconImageHref: require('@/assets/images/point-map.svg'),
-            iconImageSize: [70, 70],
-            iconImageOffset: [-24, -24],
-            iconContentOffset: [15, 15],
-            id: marker.address
-        })
-
-        this.yMaps.map.geoObjects.add(placemark)
-
-        // Add events for placemarks
-        placemark.events.add ('click', () => {
-          this.yMaps.map.setCenter(marker.coords, 12)
-        })
-      })
+      this.initializeParticipants()
     })
   },
   methods: {
@@ -128,16 +109,41 @@ export default {
         console.warn('Error:', e.message)
       }
     },
-    setCenterToPlacemark() {
-      let coords = []
-
-      this.yMaps.map.geoObjects.each(geoObject => {
-        if (geoObject.options.get('id') === this.clickedParticipantAddress) {
-          coords = geoObject.geometry.getCoordinates()
-        }
+    initializeGeoObject(coords, address) {
+      const placemark = new ymaps.Placemark(coords, {}, {
+          iconLayout: 'default#image',
+          iconImageHref: require('@/assets/images/point-map.svg'),
+          iconImageSize: [70, 70],
+          iconImageOffset: [-24, -24],
+          iconContentOffset: [15, 15],
+          id: address
       })
 
-      this.yMaps.map.setCenter(coords, 12)
+      // Add placemarks
+      this.yMaps.map.geoObjects.add(placemark)
+
+      // Add events for placemarks
+      placemark.events.add ('click', () => {
+        this.yMaps.map.setCenter(coords, 12)
+      })
+    },
+    selectParticipant() {
+      // Remove all placemarks
+      this.yMaps.map.geoObjects.removeAll()
+
+      this.participants.map(element => {
+        if (element.address === this.selectedAddress) {
+          this.initializeGeoObject(element.coords, element.address)
+          this.yMaps.map.setCenter(element.coords, this.yMaps.zoom)
+        }
+      })
+    },
+    initializeParticipants() {
+      this.participants.map(element => {
+        this.initializeGeoObject(element.coords, element.address)
+      })
+
+      this.yMaps.map.setCenter(this.yMaps.coords, this.yMaps.zoom)
     }
   }
 }
@@ -153,15 +159,27 @@ export default {
   @apply h-48;
 }
 
-.participant .arrow-right {
-  @apply w-5 h-5 ml-auto invisible;
+.participant {
+  @apply flex flex-col py-2 border-b border-secondary-100 cursor-pointer;
 
-  transform: rotate(-90deg);
-  transition: 150ms all ease-in;
+  transition: all 150ms ease-in;
 }
 
-.participant:hover .arrow-right {
-  @apply visible;
+.close-icon {
+  @apply hidden absolute p-4 right-0;
+}
+
+.close-icon:hover {
+  transition: all 150ms ease-in;
+  transform: scale(1.4);
+}
+
+.participant--active {
+  @apply bg-secondary-100;
+}
+
+.participant--active .close-icon {
+  @apply block
 }
 
 /* Custom scrollbar */
@@ -181,6 +199,12 @@ export default {
 
 .participants::-webkit-scrollbar-thumb:hover {
   @apply bg-primary-500;
+}
+
+@media (min-width: 640px) {
+  .participant {
+    @apply flex-row items-center py-4;
+  }
 }
 
 @media (min-width: 768px) {
