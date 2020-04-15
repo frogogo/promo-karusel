@@ -14,8 +14,8 @@
             <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-grey cursor-pointer"
                  @click="clickedParticipantAddress = participant.address; setCenterToPlacemark()"
                  :data-address="participant.address">
-              <span class="text-lg text-white text-bold mr-3">г. {{ participant.city }} </span>
-              <span class="text-lg text-regular text-grey">{{ participant.address }}</span>
+              <span class="text-lg text-white text-bold mr-3 truncate">{{ participant.district ? participant.district : 'г' }}. {{ participant.city }} </span>
+              <span class="text-lg text-regular text-grey truncate">{{ participant.address }}</span>
             </div>
           </div>
         </div>
