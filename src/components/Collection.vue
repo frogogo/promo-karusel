@@ -6,14 +6,14 @@
       <div class="hidden md:block">
         <div class="disc disc--sm" style="top: -3rem">
           <img
-            :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[0]}.png`)"
+            :src="require(`@/assets/images/${collection.id}/${orderOfCollectionImages[0]}.png`)"
             class="disc__img disc__img--top"
             :alt="collection.title"
           />
         </div>
         <div class="disc disc--sm" style="bottom: -3rem">
           <img
-            :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[1]}.png`)"
+            :src="require(`@/assets/images/${collection.id}/${orderOfCollectionImages[1]}.png`)"
             class="disc__img disc__img--bottom"
             :alt="collection.title"
           />
@@ -24,7 +24,7 @@
       >
         <div class="disc disc--lg relative">
           <img
-            :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[2]}.png`)"
+            :src="require(`@/assets/images/${collection.id}/${orderOfCollectionImages[2]}.png`)"
             class="disc__img disc__img--center"
             :alt="collection.title"
           />
@@ -50,7 +50,28 @@
         {{ collection.title }}
       </h3>
       <ul class="collection-list text-regular mb-5" :style="collection.description.length > 6 && 'column-count: 2'">
-        <li v-for="paragraph in collection.description">
+        <div v-if="collection.id === 'sbackpack'">
+          <li>Увеличенное количество отделений:</li>
+          <ul class="collections-list-inside">
+            <li>– Вместительное основное отделение</li>
+            <li>– Боковые сетчатые карманы</li>
+            <li>– 2 маленьких кармана</li>
+          </ul>
+          <li>Широкие регулируемые лямки</li>
+          <li>Усиленные молнии</li>
+        </div>
+        <div v-else-if="collection.id === 'bbackpack'">
+          <li>Увеличенное количество отделений:</li>
+          <ul class="collections-list-inside">
+            <li>– Вместительное основное отделение</li>
+            <li>– Отделение для ноутбука</li>
+            <li>– Боковые сетчатые карманы</li>
+            <li>– 2 маленьких кармана</li>
+          </ul>
+          <li>Широкие регулируемые лямки</li>
+          <li>Усиленные молнии</li>
+        </div>
+        <li v-else v-for="paragraph in collection.description">
           {{ paragraph }}
         </li>
       </ul>

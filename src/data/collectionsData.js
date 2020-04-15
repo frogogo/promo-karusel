@@ -11,7 +11,7 @@ export default [
     stickers: 6,
     price: '1 799',
     discountedPrice: '699',
-    imagesPathName: 'lamp'
+    id: 'lamp'
   },
   {
     positionLeft: false,
@@ -33,40 +33,25 @@ export default [
     stickers: 6,
     price: '1 499',
     discountedPrice: '599',
-    imagesPathName: 'knife'
+    id: 'knife'
   },
   {
     positionLeft: true,
     title: 'Рюкзак малый 40х25х15 см',
-    description: [
-      'Увеличенное количество отделений',
-      'Вместительное основное отделение',
-      'Боковые сетчатые карманы',
-      '2 маленьких кармана',
-      'Широкие регулируемые лямки',
-      'Усиленные молнии'
-    ],
+    description: [''],
     stickers: 6,
     price: '2 499',
     discountedPrice: '999',
-    imagesPathName: 'sbackpack'
+    id: 'sbackpack'
   },
   {
     positionLeft: false,
     title: 'Рюкзак большой 48х33х18 см',
-    description: [
-      'Увеличенное количество отделений',
-      'Вместительное основное отделение',
-      'Отделение для ноутбука',
-      'Боковые сетчатые карманы',
-      '3 маленьких кармана',
-      'Широкие регулируемые лямки',
-      'Усиленные молнии'
-    ],
+    description: [''],
     stickers: 10,
     price: '3 999',
     discountedPrice: '1 499',
-    imagesPathName: 'bbackpack'
+    id: 'bbackpack'
   },
   {
     positionLeft: true,
@@ -79,7 +64,7 @@ export default [
     stickers: 8,
     price: '2 499',
     discountedPrice: '999',
-    imagesPathName: 'thermos'
+    id: 'thermos'
   },
   {
     positionLeft: false,
@@ -92,7 +77,7 @@ export default [
     stickers: 8,
     price: '3 499',
     discountedPrice: '1 399',
-    imagesPathName: 'zont'
+    id: 'zont'
   },
   {
     positionLeft: true,
@@ -109,7 +94,7 @@ export default [
     stickers: 12,
     price: '9 999',
     discountedPrice: '3 799',
-    imagesPathName: 'case'
+    id: 'case'
   },
   {
     positionLeft: false,
@@ -126,6 +111,6 @@ export default [
     stickers: 14,
     price: '12 999',
     discountedPrice: '4 599',
-    imagesPathName: 'bcase'
+    id: 'bcase'
   }
 ]
