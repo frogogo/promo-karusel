@@ -114,8 +114,6 @@ export default {
           iconLayout: 'default#image',
           iconImageHref: require('@/assets/images/point-map.svg'),
           iconImageSize: [70, 70],
-          iconImageOffset: [-24, -24],
-          iconContentOffset: [15, 15],
           id: address
       })
 
