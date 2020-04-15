@@ -60,7 +60,7 @@ export default {
 
 <style scoped lang="css">
 .btn {
-  @apply py-2 px-5 border uppercase rounded-full text-white text-sm text-center transition-all duration-150;
+  @apply py-3 px-5 border-2 uppercase rounded-full text-white text-sm text-center transition-all duration-150 leading-none;
 }
 
 .btn-primary {

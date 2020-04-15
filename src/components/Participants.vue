@@ -9,7 +9,7 @@
         Гипермаркеты — участники акции
       </h2>
       <div class="flex flex-col md:flex-row mb-12">
-        <div class="participants md:flex-1 md:mr-20 overflow-y-scroll mb-8 md:mb-0 pr-5">
+        <div class="participants md:flex-1 md:mr-16 overflow-y-scroll mb-8 md:mb-0 pr-5">
           <div v-for="participant in this.participants">
             <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-secondary-100 cursor-pointer participant"
                  @click="clickedParticipantAddress = participant.address; setCenterToPlacemark()"
@@ -145,7 +145,8 @@ export default {
 
 <style scoped lang="css">
 #map {
-  height: 35rem
+  height: 35rem;
+  @apply rounded-lg;
 }
 
 .participants {

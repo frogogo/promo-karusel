@@ -63,6 +63,7 @@
           :src="require(`@/assets/images/im-sticker-${collection.stickers}.svg`)"
           class="mr-5"
           alt=""
+          style="box-shadow: 0px 10px 37px 4px rgba(0,0,0,0.27)"
         />
         <div class="flex items-baseline flex-1">
           <div class="flex">
