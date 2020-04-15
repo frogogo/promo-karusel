@@ -12,10 +12,11 @@ module.exports = {
       },
       secondary: {
         300: '#b12e2c',
-        500: '#6c1c1b'
+        500: '#6c1c1b',
+        100: '#894948'
       },
       white: '#ffffff',
-      grey: '#969696'
+      grey: '#c2a2a2'
     }
   }
 }

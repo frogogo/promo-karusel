@@ -3,19 +3,20 @@
        :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/footer-bg.jpg') + '\')' }">
     <div class="container">
       <h2
-        class="text-bold text-white text-3xl md:text-5xl leading-tight mb-32"
+        class="text-bold text-white text-3xl md:text-5xl leading-tight mb-12 md:mb-32"
         id="participants"
       >
         Гипермаркеты — участники акции
       </h2>
       <div class="flex flex-col md:flex-row mb-12">
-        <div class="flex-1 md:mr-20 overflow-y-scroll mb-8 md:mb-0" style="height: 560px">
+        <div class="participants md:flex-1 md:mr-20 overflow-y-scroll mb-8 md:mb-0 pr-5">
           <div v-for="participant in this.participants">
-            <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-grey cursor-pointer"
+            <div class="flex flex-col sm:flex-row sm:items-center mb-2 pb-2 sm:mb-4 sm:pb-4 border-b border-secondary-100 cursor-pointer participant"
                  @click="clickedParticipantAddress = participant.address; setCenterToPlacemark()"
                  :data-address="participant.address">
               <span class="text-lg text-white text-bold mr-3 truncate">{{ participant.district ? participant.district : 'г' }}. {{ participant.city }} </span>
               <span class="text-lg text-regular text-grey truncate">{{ participant.address }}</span>
+              <span class="hidden md:flex flex-1 text-right"><img :src="require('@/assets/images/icon-arrow-down.svg')" class="arrow-right" /></span>
             </div>
           </div>
         </div>
@@ -145,5 +146,45 @@ export default {
 <style scoped lang="css">
 #map {
   height: 35rem
+}
+
+.participants {
+  @apply h-48;
+}
+
+.participant .arrow-right {
+  @apply w-5 h-5 ml-auto invisible;
+
+  transform: rotate(-90deg);
+  transition: 150ms all ease-in;
+}
+
+.participant:hover .arrow-right {
+  @apply visible;
+}
+
+/* Custom scrollbar */
+.participants::-webkit-scrollbar {
+  width: 5px;
+
+  @apply rounded bg-secondary-100;
+}
+
+.participants::-webkit-scrollbar-track {
+  @apply rounded-lg;
+}
+
+.participants::-webkit-scrollbar-thumb {
+  @apply rounded-lg bg-primary-300;
+}
+
+.participants::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+@media (min-width: 768px) {
+  .participants {
+    height: 35rem;
+  }
 }
 </style>
