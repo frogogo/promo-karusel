@@ -4,14 +4,14 @@
     <div class="flex flex-1"
          :class="collection.positionLeft ? ' lg:flex-row': ' lg:flex-row-reverse'">
       <div class="hidden md:block">
-        <div class="disc disc--sm" style="top: -3rem" v-hammer:swipe.left="previousSlide" v-hammer:swipe.right="nextSlide">
+        <div class="disc disc--sm" style="top: -3rem">
           <img
             :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[0]}.png`)"
             class="disc__img disc__img--top"
             :alt="collection.title"
           />
         </div>
-        <div class="disc disc--sm" style="bottom: -3rem" v-hammer:swipe.left="previousSlide" v-hammer:swipe.right="nextSlide">
+        <div class="disc disc--sm" style="bottom: -3rem">
           <img
             :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[1]}.png`)"
             class="disc__img disc__img--bottom"
@@ -22,7 +22,7 @@
       <div
         class="disc--lg mb-20 md:mb-32 lg:mb-0 flex items-center relative"
       >
-        <div class="disc disc--lg relative" v-hammer:swipe.left="previousSlide" v-hammer:swipe.right="nextSlide">
+        <div class="disc disc--lg relative">
           <img
             :src="require(`@/assets/images/${collection.imagesPathName}/${orderOfCollectionImages[2]}.png`)"
             class="disc__img disc__img--center"
