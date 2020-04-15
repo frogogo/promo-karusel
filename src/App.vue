@@ -61,13 +61,13 @@ button {
 }
 
 @font-face {
-  font-family: 'CarouselRegular';
-  src: url('~@/assets/fonts/Carousel-Regular.woff2') format('woff2');
+  font-family: 'KaruselRegular';
+  src: url('~@/assets/fonts/Karusel-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'CarouselSmall';
-  src: url('~@/assets/fonts/Carousel-Small.woff2') format('woff2');
+  font-family: 'KaruselSmall';
+  src: url('~@/assets/fonts/Karusel-Small.woff2') format('woff2');
 }
 
 .text-thin {
@@ -90,12 +90,12 @@ button {
   font-family: 'CircleExtraBold';
 }
 
-.text-carousel-regular {
-  font-family: 'CarouselRegular';
+.text-karusel-regular {
+  font-family: 'KaruselRegular';
 }
 
-.text-carousel-small {
-  font-family: 'CarouselSmall';
+.text-karusel-small {
+  font-family: 'KaruselSmall';
 }
 
 [v-cloak] {

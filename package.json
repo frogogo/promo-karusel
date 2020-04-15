@@ -1,5 +1,5 @@
 {
-  "name": "carousel",
+  "name": "karusel",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

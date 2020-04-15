@@ -8,7 +8,7 @@
       <div class="lg:flex lg:justify-between mb-10 md:mb-32">
         <div v-for="step in steps"
              class="text-center mb-10 lg:mb-0 lg:mr-10 relative">
-          <div class="step text-carousel-regular" :data-step="step.number">
+          <div class="step text-karusel-regular" :data-step="step.number">
             <inline-svg :src="require('@/assets/images/im-step.svg')"/>
           </div>
           <inline-svg :src="step.iconUrl" class="w-32 h-32 md:w-48 md:h-48 mb-5 mx-auto"/>

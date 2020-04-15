@@ -85,10 +85,10 @@
         />
         <div class="flex items-baseline flex-1">
           <div class="flex">
-            <span class="text-5xl sm:text-6xl text-carousel-regular">
+            <span class="text-5xl sm:text-6xl text-karusel-regular">
               {{ collection.discountedPrice }}
             </span>
-            <span class="text-4xl text-carousel-regular self-start">00</span>
+            <span class="text-4xl text-karusel-regular self-start">00</span>
           </div>
           <span class="w-1 h-12 bg-white mx-4"></span>
           <div class="flex flex-col relative flex-1 ml-3">
@@ -96,7 +96,7 @@
               Цена без наклеек
             </span>
             <div class="flex items-center">
-              <span class="text-4xl text-carousel-regular mr-1">
+              <span class="text-4xl text-karusel-regular mr-1">
                 {{ collection.price }}
               </span>
               <small class="text-3xl">₽</small>

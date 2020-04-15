@@ -1,4 +1,4 @@
-# carousel
+# karusel
 
 To get started, clone the project and install the dependencies:
 
