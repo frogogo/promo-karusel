@@ -2,8 +2,8 @@
   <header class="bg-cover lg:min-h-screen"
           :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/header-bg.jpg') + '\')' }">
     <div class="container">
-      <div class="flex flex-col justify-between lg:min-h-screen pt-8 md:pt-12 pb-2">
-        <nav class="flex justify-between items-center mb-12 md:mb-24 lg:mb-32">
+      <div class="flex flex-col justify-between lg:min-h-screen pt-8 md:pt-10 pb-2">
+        <div class="flex justify-between items-center mb-12 md:mb-20">
           <a href="/" class="h-6 md:h-12 mr-16">
             <img :src="require('@/assets/images/logo-karusel.svg')" class="h-full" alt="Гипермаркет Карусель"/>
           </a>
@@ -18,9 +18,9 @@
           <div class="md:hidden">
             <MobileMenu :navigationLinks="navigationLinks"/>
           </div>
-        </nav>
+        </div>
 
-        <div class="flex flex-col-reverse items-center md:flex-row md:mb-12 lg:mb-24">
+        <div class="flex flex-col-reverse items-center md:flex-row md:mb-12 xl:mb-20">
           <div class="flex-1 md:mr-20 ">
             <h1 class="mb-5 text-white font-bold text-2xl lg:text-4xl">
               <span class="mr-2 text-extra-bold">Продукция итальянского <br>бренда</span>
