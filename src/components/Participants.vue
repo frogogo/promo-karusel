@@ -12,11 +12,13 @@
         <div class="participants md:flex-1 md:mr-16 overflow-y-scroll mb-8 md:mb-0 pr-5">
           <div v-for="participant in this.participants">
             <div class="participant relative"
+                 ref="participant"
+                 :id="participant.address"
                  :class="selectedAddress === participant.address && 'participant--active'"
                  @click="selectedAddress = participant.address; selectParticipant()">
-              <span class="text-lg text-white text-bold mr-3 truncate">
+              <span class="text-lg text-white text-bold mr-3 truncate flex-none">
                 {{ participant.district ? participant.district : 'г' }}. {{ participant.city }} </span>
-              <span class="text-lg text-regular text-grey truncate">
+              <span class="text-lg text-regular text-grey truncate address">
                 {{ participant.address }}
               </span>
               <span class="close-icon" @click.stop="selectedAddress = ''; initializeParticipants()">
@@ -122,6 +124,14 @@ export default {
 
       // Add events for placemarks
       placemark.events.add ('click', () => {
+        if (this.selectedAddress !== address) {
+          this.selectedAddress = address
+        }
+
+        this.$refs.participant.map(el => {
+          el.id === address && el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        })
+
         this.yMaps.map.setCenter(coords, 12)
       })
     },
@@ -177,7 +187,11 @@ export default {
 }
 
 .participant--active .close-icon {
-  @apply block
+  @apply block;
+}
+
+.participant--active .address {
+  @apply .pr-8;
 }
 
 /* Custom scrollbar */
