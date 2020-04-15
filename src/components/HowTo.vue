@@ -17,10 +17,10 @@
         </div>
       </div>
       <div class="flex flex-col sm:flex-row justify-center">
-        <a href="#" class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0">
+        <a href="/rules.pdf" class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0" target="_blank">
           Правила акции
         </a>
-        <a href="#" class="btn btn-white text-bold">
+        <a href="/booklet.pdf" class="btn btn-white text-bold" target="_blank">
           Скачать буклет
         </a>
       </div>
