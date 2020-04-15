@@ -52,8 +52,8 @@ export default {
           lang: 'ru_RU',
           version: '2.1'
         },
-        coords: [48.745056, 44.518565],
-        zoom: 5,
+        coords: [55.618181, 37.509568],
+        zoom: 4,
         map: Object
       },
       participants: ParticipantsData,
