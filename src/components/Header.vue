@@ -27,17 +27,11 @@
               <img :src="require('@/assets/images/logo-ducaticorse.svg')" class="inline align-baseline w-2/3 md:w-auto mr-2" alt="Дукати Корсе"/>
               <span class="align-top">*</span>
             </h1>
-            <div class="text-white text-lg" :class="(descriptionCompact && windowWidth < 768) && 'truncate-3 h-20'">
+            <div class="text-white text-lg">
               <p class="mb-5 text-regular">Компания Ducati основана в 1926 году в Болонье (Италия). Изначально компания занималась выпуском электротехнической продукции, а сейчас производит известные во всем мире гоночные мотоциклы.</p>
               <p class="mb-5 text-regular">Бренд Ducati Corse – это синоним безупречного стиля, престижа и высоких достижений.</p>
               <p class="mb-5 text-regular">Бренд Ducati Corse предназначен не только для ценителей бренда, но и для уверенных в себе людей, воодушевленных своей мечтой, нацеленных на победу, стремящихся изменить жизнь к лучшему.</p>
               <p>* Дукати Корсе</p>
-            </div>
-            <div v-if="descriptionCompact && windowWidth < 768" class="mt-5">
-              <button class="flex items-center" @click="descriptionCompact = false">
-                <span class="text-white text-regular mr-3">Смотреть всё</span>
-                <img :src="require('@/assets/images/icon-arrow-down.svg')">
-              </button>
             </div>
           </div>
           <div class="flex-1">
@@ -78,9 +72,6 @@ export default {
       ],
       descriptionCompact: Boolean
     }
-  },
-  mounted() {
-    this.descriptionCompact = this.windowWidth < 768
   }
 }
 </script>
