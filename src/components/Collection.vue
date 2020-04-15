@@ -49,11 +49,8 @@
       <h3 class="text-bold text-xl md:text-4xl text-white mb-5">
         {{ collection.title }}
       </h3>
-      <ul class="collection-list text-regular flex flex-wrap mb-5">
-        <li
-          :class="collection.description.length > 6 ? 'w-full sm:w-1/2' : 'w-full'"
-          v-for="paragraph in collection.description"
-        >
+      <ul class="collection-list text-regular mb-5" :style="collection.description.length > 6 && 'column-count: 2'">
+        <li v-for="paragraph in collection.description">
           {{ paragraph }}
         </li>
       </ul>
