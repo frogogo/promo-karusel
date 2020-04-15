@@ -21,7 +21,7 @@
           </a>
         </nav>
 
-        <div class="pb-32">
+        <div class="mb-40">
           <Contacts />
         </div>
       </div>
