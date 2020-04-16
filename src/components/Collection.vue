@@ -95,12 +95,12 @@
             <span class="text-bold text-xs uppercase absolute top-0 -mt-2">
               Цена без наклеек
             </span>
-            <div class="flex items-center">
+            <div class="flex items-baseline">
               <span class="text-4xl text-karusel-regular">
                 {{ collection.price }}
               </span>
               <span class="text-4xl text-karusel-small self-start mx-1">00</span>
-              <small class="text-3xl text-karusel-small">Руб.</small>
+              <small class="text-2xl text-karusel-small">Руб.</small>
             </div>
           </div>
         </div>
