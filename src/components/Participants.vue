@@ -9,7 +9,7 @@
         Гипермаркеты — участники акции
       </h2>
       <div class="flex flex-col md:flex-row mb-12">
-        <div class="participants md:flex-1 md:mr-16 overflow-y-scroll mb-8 md:mb-0 pr-5">
+        <div class="participants md:flex-1 overflow-y-scroll mb-8 md:mb-0 md:pr-5 md:mr-16">
           <div v-for="participant in this.participants">
             <div class="participant relative"
                  ref="participant"
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-        <div class="flex-1 rounded-lg overflow-hidden">
+        <div class="md:flex-1 rounded-lg overflow-hidden">
           <div id="map"></div>
         </div>
       </div>
