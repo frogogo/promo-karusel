@@ -16,7 +16,7 @@
         <text fill="#FFF" stroke="#FFF" stroke-width="0" class="text-karusel-regular" font-size="16">
             <tspan x="2.84" y="53">НАКЛЕЕК</tspan>
         </text>
-        <text fill="#FFF" font-family="text-karusel-regular" font-size="32">
+        <text fill="#FFF" class="text-karusel-regular" font-size="32">
             <tspan x="16.52" y="36">8</tspan>
         </text>
         <path fill="#B12E2C" d="M23.105 0l18.9 18.947H31c-4.36 0-7.895-3.534-7.895-7.894V0z"/>
