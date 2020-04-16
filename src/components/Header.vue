@@ -2,7 +2,7 @@
   <header class="bg-cover lg:min-h-screen"
           :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/header-bg.jpg') + '\')' }">
     <div class="container">
-      <div class="flex flex-col justify-between lg:min-h-screen pt-8 md:pt-10 pb-2">
+      <div class="flex flex-col justify-between lg:min-h-screen pt-8 md:pt-10 pb-10">
         <div class="flex justify-between items-center mb-12 md:mb-20">
           <a href="/" class="h-6 md:h-12 mr-16">
             <img :src="require('@/assets/images/logo-karusel.svg')" class="h-full" alt="Гипермаркет Карусель"/>
