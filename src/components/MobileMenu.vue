@@ -1,5 +1,5 @@
 <template>
-  <button class="w-5 h-5" v-if="!isModalOpened" @click="openModal">
+  <button class="w-5 h-5" v-if="!isModalOpened" @click="openModal" aria-label="Меню">
     <img :src="require('@/assets/images/icon-menu.svg')" class="h-full" alt="Меню"/>
   </button>
   <div v-else
@@ -7,7 +7,7 @@
        :style="{ background: '#6c1c1b left / cover no-repeat url(\'' + require('@/assets/images/header-bg-sm.jpg') + '\')' }">
     <div class="container">
       <div class="flex flex-col min-h-screen items-center justify-between">
-        <button class="self-end w-5 h-5" @click="closeModal">
+        <button class="self-end w-5 h-5" @click="closeModal" aria-label="Закрыть">
           <img :src="require('@/assets/images/icon-close.svg')" class="h-full" alt="Закрыть"/>
         </button>
 

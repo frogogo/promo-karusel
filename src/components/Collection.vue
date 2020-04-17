@@ -33,14 +33,16 @@
            class="arrow left-arrow"
            @mouseover="iconLeftHovered = true"
            @mouseout="iconLeftHovered = false"
-           @click.prevent="previousSlide">
+           @click.prevent="previousSlide"
+           aria-label="Влево">
           <img :src="iconLeftHovered ? iconLeftActive : iconLeft" alt="Влево" />
         </button>
         <button
            class="arrow right-arrow"
            @mouseover="iconRightHovered = true"
            @mouseout="iconRightHovered = false"
-           @click.prevent="nextSlide">
+           @click.prevent="nextSlide"
+           aria-label="Влево">
           <img :src="iconRightHovered ? iconRightActive : iconRight" alt="Вправо" />
         </button>
       </div>
