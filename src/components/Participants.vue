@@ -22,7 +22,7 @@
                 {{ participant.address }}
               </span>
               <span class="close-icon" @click.stop="selectedAddress = ''; initializeParticipants()">
-                <img :src="require('@/assets/images/icon-close.svg')" />
+                <img :src="require('@/assets/images/icon-close.svg')" alt="Закрыть"/>
               </span>
             </div>
           </div>

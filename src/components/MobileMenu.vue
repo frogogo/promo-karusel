@@ -1,6 +1,6 @@
 <template>
   <button class="w-5 h-5" v-if="!isModalOpened" @click="openModal">
-    <img :src="require('@/assets/images/icon-menu.svg')" class="h-full"/>
+    <img :src="require('@/assets/images/icon-menu.svg')" class="h-full" alt="Меню"/>
   </button>
   <div v-else
        class="bg-cover absolute w-full h-full z-50 top-0 pt-8 h-screen left-0"
@@ -8,7 +8,7 @@
     <div class="container">
       <div class="flex flex-col min-h-screen items-center justify-between">
         <button class="self-end w-5 h-5" @click="closeModal">
-          <img :src="require('@/assets/images/icon-close.svg')" class="h-full" />
+          <img :src="require('@/assets/images/icon-close.svg')" class="h-full" alt="Закрыть"/>
         </button>
 
         <nav class="text-regular flex flex-col items-center">
