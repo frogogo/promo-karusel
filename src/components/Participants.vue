@@ -131,7 +131,7 @@ export default {
         }
 
         this.$refs.participant.map(el => {
-          el.id === address && el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          el.id === address && el.scrollIntoView({ block: 'center' })
         })
 
         this.yMaps.map.setCenter(coords, 12)
