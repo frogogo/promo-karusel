@@ -34,7 +34,7 @@
 
       <div class="flex flex-col md:flex-row md:items-center md:justify-between pb-5 border-b border-grey">
         <Contacts />
-        <p class="md:ml-32 mt-5 mb:mt-0 flex-1 text-regular text-xs text-white">
+        <p class="md:ml-32 mt-5 md:mt-0 flex-1 text-regular text-xs text-white">
           Подробную информации о товаре, порядке получения скидки, месте и сроках ее проведения можно узнать у организатора акции ООО «КЛР» (ИНН 7731452742) по телефону бесплатной «горячей линии» 8 800 555 07 08 в рабочие дни с 9:00 до 18:00 (время московское)
         </p>
       </div>
