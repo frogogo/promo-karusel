@@ -105,4 +105,12 @@ button {
 #app {
   @apply overflow-x-hidden;
 }
+
+.v-lazy-image {
+  filter: blur(.5rem);
+  transition: filter 0.5s;
+}
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
 </style>

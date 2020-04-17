@@ -35,7 +35,7 @@
             </div>
           </div>
           <div class="flex-1">
-            <img :src="require('@/assets/images/header-img.png')" class="mb-8 md:mb-0" alt="Промо"/>
+            <v-lazy-image :src="require('@/assets/images/header-img.png')" class="mb-8 md:mb-0" alt="Промо"/>
           </div>
         </div>
         <a href="#how-to" v-smooth-scroll="{ duration: 300, offset: -50}">
