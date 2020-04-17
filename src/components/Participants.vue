@@ -91,33 +91,11 @@ export default {
     })
   },
   methods: {
-    async request(url, method = 'GET', data = null) {
-      try {
-        const headers = {}
-        let body
-
-        if (data) {
-          headers['Content-Type'] = 'application/json'
-          body = JSON.stringify(data)
-        }
-
-        const response = await fetch(url, {
-          method,
-          headers,
-          body
-        })
-        return await response.json()
-      } catch (e) {
-        console.warn('Error:', e.message)
-      }
-    },
     initializeGeoObject(coords, address) {
       const placemark = new ymaps.Placemark(coords, {}, {
           iconLayout: 'default#image',
           iconImageHref: require('@/assets/images/point-map.svg'),
-          iconImageSize: [70, 70],
-          iconImageOffset: [-24, -24],
-          iconContentOffset: [15, 15],
+          iconImageSize: [50, 50],
           id: address
       })
 
