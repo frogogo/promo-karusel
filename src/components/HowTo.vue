@@ -1,5 +1,5 @@
 <template>
-  <div class="py-20 bg-secondary-500 -mt-1">
+  <div class="py-20 bg-secondary-500">
     <div class="container">
       <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32"
           id="how-to">

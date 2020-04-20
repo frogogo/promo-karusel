@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-10 bg-secondary-500 -mt-1 bg-cover"
+  <div class="pt-10 bg-secondary-500 bg-cover"
        :style="{ background: '#6c1c1b center / cover no-repeat url(\'' + require('@/assets/images/footer-bg.jpg') + '\')' }">
     <div class="container">
       <h2
