@@ -94,7 +94,7 @@ export default {
     initializeGeoObject(coords, address) {
       const placemark = new ymaps.Placemark(coords, {}, {
           iconLayout: 'default#image',
-          iconImageHref: require('@/assets/images/point-map.svg'),
+          iconImageHref: require('@/assets/images/point-map.png'),
           iconImageSize: [50, 50],
           id: address
       })
