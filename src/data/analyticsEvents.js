@@ -1,44 +1,44 @@
 export default {
   howTo: {
     event: 'karusel_promo',
-    eventAction: 'how_to',
-    eventCategory: 'karusel',
-    eventLabel: 'PageUrl'
+    action: 'how_to',
+    category: 'karusel',
+    label: 'PageUrl'
   },
   collections: {
     event: 'karusel_promo',
-    eventAction: 'collection',
-    eventCategory: 'karusel',
-    eventLabel: 'PageUrl'
+    action: 'collection',
+    category: 'karusel',
+    label: 'PageUrl'
   },
   participants: {
     event: 'karusel_promo',
-    eventAction: 'shops',
-    eventCategory: 'karusel',
-    eventLabel: 'PageUrl'
+    action: 'shops',
+    category: 'karusel',
+    label: 'PageUrl'
   },
   rules: {
     event: 'karusel_promo',
-    eventAction: 'rules',
-    eventCategory: 'karusel',
-    eventLabel: 'PageUrl'
+    action: 'rules',
+    category: 'karusel',
+    label: 'PageUrl'
   },
   booklet: {
     event: 'karusel_promo',
-    eventAction: 'download',
-    eventCategory: 'karusel',
-    eventLabel: 'PageUrl'
+    action: 'download',
+    category: 'karusel',
+    label: 'PageUrl'
   },
   sliderNavigationRight: {
     event: 'karusel_promo',
-    eventAction: 'slider',
-    eventCategory: 'karusel',
-    eventLabel: 'Right'
+    action: 'slider',
+    category: 'karusel',
+    label: 'Right'
   },
   sliderNavigationLeft: {
     event: 'karusel_promo',
-    eventAction: 'slider',
-    eventCategory: 'karusel',
-    eventLabel: 'Left'
+    action: 'slider',
+    category: 'karusel',
+    label: 'Left'
   }
 }

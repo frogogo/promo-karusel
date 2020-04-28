@@ -12,6 +12,7 @@ import Header from './components/Header.vue'
 import HowTo from './components/HowTo.vue'
 import Collections from './components/Collections.vue'
 import Participants from './components/Participants.vue'
+import AnalyticsEvents from '@/data/analyticsEvents.js'
 
 export default {
   name: 'app',
@@ -20,6 +21,40 @@ export default {
     HowTo,
     Collections,
     Participants
+  },
+  mounted() {
+    this.initializeAnalytics()
+  },
+  methods: {
+    initializeAnalytics() {
+      const events = AnalyticsEvents
+
+      window.addEventListener('click', event => {
+        let target
+
+        event.target.hasAttribute('data-user-action')
+          ? target = event.target
+          : target = event.target.closest('[data-user-action]')
+
+        if (!target) { return }
+
+        for (const [key, value] of Object.entries(events)) {
+          if (key === target.dataset.userAction) {
+
+            if (value.label === 'PageUrl') {
+              value.label = target.href
+            }
+
+            window.dataLayer.push({
+              event: value.event,
+              eventAction: value.action,
+              eventCategory: value.category,
+              eventLabel: value.label
+            })
+          }
+        }
+      })
+    }
   }
 }
 </script>
