@@ -10,6 +10,7 @@
           <nav class="text-regular hidden md:block">
             <a v-for="link in navigationLinks"
                class="navigation-link"
+               :data-user-action="link.userAction"
                :href="link.url"
                v-smooth-scroll="{ duration: 300, offset: -50}">
                {{ link.name }}
@@ -59,15 +60,18 @@ export default {
       navigationLinks: [
         {
           name: 'Как принять участие?',
-          url: '#how-to'
+          url: '#how-to',
+          userAction: 'howTo'
         },
         {
           name: 'Коллекция',
-          url: '#collections'
+          url: '#collections',
+          userAction: 'collections'
         },
         {
           name: 'Гипермаркеты',
-          url: '#participants'
+          url: '#participants',
+          userAction: 'participants'
         }
       ],
       descriptionCompact: Boolean

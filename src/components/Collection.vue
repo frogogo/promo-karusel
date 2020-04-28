@@ -31,6 +31,7 @@
         </div>
         <button
            class="arrow left-arrow"
+           data-user-action="sliderNavigationLeft"
            @mouseover="iconLeftHovered = true"
            @mouseout="iconLeftHovered = false"
            @click.prevent="previousSlide"
@@ -39,6 +40,7 @@
         </button>
         <button
            class="arrow right-arrow"
+           data-user-action="sliderNavigationRight"
            @mouseover="iconRightHovered = true"
            @mouseout="iconRightHovered = false"
            @click.prevent="nextSlide"

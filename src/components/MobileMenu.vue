@@ -15,6 +15,7 @@
           <nav class="text-regular flex flex-col items-center">
             <a v-for="link in navigationLinks"
                class="navigation-link mb-5"
+               :data-user-action:="link.userAction"
                :href="link.url"
                @click="isModalOpened = false ; toggleBodyScrolling('')"
                v-smooth-scroll="{ duration: 300, offset: -50}">
