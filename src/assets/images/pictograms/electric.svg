@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <filter id="uksn5to20a">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"/>
+        </filter>
+        <filter id="gr24c0tw5b">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g filter="url(#uksn5to20a)" transform="translate(-370 -9113) translate(370 1800) translate(0 6960) translate(0 81) translate(0 272)">
+                            <g filter="url(#gr24c0tw5b)">
+                                <g>
+                                    <path stroke="#FFF" stroke-width="1.125" d="M15.03 6.03c0-.675-1.32-1.245-3-1.245s-3 .495-3 1.245c0 .75 1.32 1.26 3 1.26s3-.645 3-1.26zM.855 7.215h0l-.3-1.185v2.43c0 2.685 3.975 5.4 11.475 5.4s11.475-2.715 11.475-5.4V6.03l-.3 1.26h0M12.03 11.37C4.53 11.37.555 8.64.555 6.03S4.53.555 12.03.555 23.505 3.27 23.505 6.03s-3.975 5.34-11.475 5.34z" transform="translate(0 4.5)"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

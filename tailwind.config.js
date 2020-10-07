@@ -16,7 +16,8 @@ module.exports = {
         100: '#894948'
       },
       white: '#ffffff',
-      grey: '#c2a2a2'
+      grey: '#C1C1C1',
+      lightGrey: 'rgba(255, 255, 255, 0.2)'
     }
   }
 }
