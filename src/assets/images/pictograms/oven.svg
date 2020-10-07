@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <filter id="jmeqymo0ya">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"/>
+        </filter>
+        <filter id="bbx4yh9jpb">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g filter="url(#jmeqymo0ya)" transform="translate(-370 -7859) translate(370 1800) translate(0 5686) translate(0 129) translate(0 244)">
+                            <g filter="url(#bbx4yh9jpb)">
+                                <rect width="22.71" height="22.71" x=".645" y=".57" stroke="#FFF" stroke-linejoin="round" stroke-width="1.125" rx=".93"/>
+                                <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.125" d="M3.135 9.06H20.85V20.775H3.135z"/>
+                                <g>
+                                    <path stroke="#FFF" stroke-linejoin="round" stroke-width="1.125" d="M0 4.74L24 4.74" transform="translate(0 1.5)"/>
+                                    <path fill="#FFF" fill-rule="nonzero" d="M15.495 1.41c0-.408-.247-.775-.624-.93-.377-.154-.81-.066-1.097.225-.286.29-.368.725-.208 1.1.16.375.531.616.939.61.55-.008.99-.456.99-1.005M10.005 1.41C10.005.855 9.555.405 9 .405c-.555 0-1.005.45-1.005 1.005 0 .555.45 1.005 1.005 1.005.555 0 1.005-.45 1.005-1.005M4.5 1.41C4.5.855 4.05.405 3.495.405 2.94.405 2.49.855 2.49 1.41c0 .555.45 1.005 1.005 1.005.555 0 1.005-.45 1.005-1.005M21 1.41c0-.555-.45-1.005-1.005-1.005-.555 0-1.005.45-1.005 1.005 0 .555.45 1.005 1.005 1.005.555 0 1.005-.45 1.005-1.005" transform="translate(0 1.5)"/>
+                                </g>
+                                <path stroke="#FFF" stroke-linejoin="round" stroke-width="1.125" d="M4.5 18.78h15M2.505 11.565h18.99"/>
+                                <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.125" d="M10.035 13.53c-1.35 1.74 1.365 2.115 0 3.72m3.93-3.72c-1.35 1.74 1.365 2.115 0 3.72M12 13.53c-1.365 1.74 1.365 2.115 0 3.72"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,32 +1,43 @@
 <template>
-  <div class="py-20 bg-secondary-500">
+  <div class="py-20">
     <div class="container">
-      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32"
-          id="how-to">
-        Как принять <br> участие в акции?
+      <h2
+        class="text-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32"
+        id="how-to"
+      >
+        Как принять <br />
+        участие в акции?
       </h2>
       <div class="lg:flex lg:justify-between mb-10 md:mb-32">
-        <div v-for="step in steps"
-             class="text-center mb-10 lg:mb-0 lg:mr-10 relative">
-          <div class="step text-karusel-regular" :data-step="step.number">
-            <inline-svg :src="require('@/assets/images/im-step.svg')"/>
-          </div>
-          <inline-svg :src="step.iconUrl" class="w-32 h-32 md:w-48 md:h-48 mb-5 mx-auto"/>
+        <div
+          :key="step.number"
+          v-for="step in steps"
+          class="text-center mb-10 lg:mb-0 lg:mr-10 relative"
+        >
+          <div class="step text-karusel-regular" :data-step="step.number" />
+          <inline-svg
+            :src="step.iconUrl"
+            class="w-32 h-32 md:w-48 md:h-48 mb-5 mx-auto"
+          />
           <p class="text-bold text-white text-xl">{{ step.title }}</p>
           <p class="text-bold text-white text-4xl">{{ step.caption }}</p>
         </div>
       </div>
       <div class="flex flex-col sm:flex-row justify-center">
-        <a href="/rules.pdf"
-           class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0"
-           data-user-action="rules"
-           target="_blank">
+        <a
+          href="/rules.pdf"
+          class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0"
+          data-user-action="rules"
+          target="_blank"
+        >
           Правила акции
         </a>
-        <a href="/booklet.pdf"
-           class="btn btn-white text-bold"
-           data-user-action="booklet"
-           target="_blank">
+        <a
+          href="/booklet.pdf"
+          class="btn btn-white text-bold"
+          data-user-action="booklet"
+          target="_blank"
+        >
           Скачать буклет
         </a>
       </div>
@@ -36,32 +47,32 @@
 
 <script>
 export default {
-  name: 'HowTo',
+  name: "HowTo",
   data() {
     return {
       steps: [
         {
-          number: '1',
-          iconUrl: require('@/assets/images/im-step-cart.svg'),
-          title: 'Совершайте покупки',
-          caption: 'в гипермаркете'
+          number: "1",
+          iconUrl: require("@/assets/images/im-step-cart.svg"),
+          title: "Совершайте покупки",
+          caption: "в гипермаркете",
         },
         {
-          number: '2',
-          iconUrl: require('@/assets/images/im-step-sticker.svg'),
-          title: 'Собирайте наклейки',
-          caption: '350 рублей = 1 наклейка'
+          number: "2",
+          iconUrl: require("@/assets/images/im-step-sticker.svg"),
+          title: "Собирайте наклейки",
+          caption: "300 ₽ = 1 наклейка",
         },
         {
-          number: '3',
-          iconUrl: require('@/assets/images/im-step-65.svg'),
-          title: 'Покупайте товары Ducati Corse',
-          caption: 'со скидкой'
-        }
-      ]
-    }
-  }
-}
+          number: "3",
+          iconUrl: require("@/assets/images/im-step-80.svg"),
+          title: "Покупайте товары BUGATTI",
+          caption: "со скидкой",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped lang="css">
@@ -86,10 +97,23 @@ export default {
 }
 
 .step {
+  height: 72px;
+  width: 72px;
   @apply absolute top-0;
 }
 
-.step:before {
+.step::after {
+  @apply rounded-lg;
+  content: "";
+  display: block;
+  transform: rotate(45deg);
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.2;
+}
+
+.step::before {
   content: attr(data-step);
 
   @apply absolute w-full h-full flex items-center justify-center text-white text-5xl;

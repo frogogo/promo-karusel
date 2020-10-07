@@ -1,32 +1,36 @@
 <template>
-  <div class="pt-10 pb-32 bg-secondary-500">
-    <div class="container">
-      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-32"
-          id="collections">
-        Коллекция Ducati Corse
+  <div class="pt-10 pb-32">
+    <div class="container" id="collections">
+      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-32">
+        Коллекция товаров BUGATTI
       </h2>
       <div class="collections">
-        <Collection v-for="collection in collections" :collection="collection"/>
+        <Collection
+          :key="collection.id"
+          v-for="(collection, index) in collections"
+          :positionLeft="index % 2 == 0"
+          :collection="collection"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Collection from '@/components/Collection.vue'
-import CollectionsData from '@/data/collectionsData.js'
+import Collection from "@/components/Collection.vue";
+import CollectionsData from "@/data/collectionsData.js";
 
 export default {
-  name: 'Collections',
+  name: "Collections",
   components: {
-    Collection
+    Collection,
   },
   data() {
     return {
-      collections: CollectionsData
-    }
-  }
-}
+      collections: CollectionsData,
+    };
+  },
+};
 </script>
 
 <style scoped lang="css">
