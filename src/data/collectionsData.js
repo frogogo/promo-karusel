@@ -7,7 +7,7 @@ export default [
     stickers: 8,
     price: 2299,
     discountedPrice: 499,
-    frogogoDiscountedPrice: 299,
+    frogogoDiscountedPrice: 290,
     image: require('@/assets/images/knife/im-razdelochny-01@2x.png'),
   },
   {
