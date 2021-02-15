@@ -15,29 +15,18 @@
     </div>
     <div
       class="flex-1 flex flex-col w-full"
-      :class="positionLeft ? 'items-start' : 'items-end'"
+      :class="positionLeft ? 'items-start' : 'lg:items-end'"
     >
-      <div class="flex flex-col text-white">
-        <h3 class="text-bold text-xl md:text-4xl text-white">
+      <div class="flex flex-col">
+        <h3 class="text-karusel-regular text-bold text-xl md:text-4xl ">
           {{ collection.title }}
         </h3>
-        <span class="collection__description" v-if="collection.description">
-          {{ collection.description }}
-        </span>
         <ul class="collection__list" v-if="collection.specifications">
           <li v-for="item in collection.specifications" :key="item">
             {{ item }}
           </li>
         </ul>
-        <div v-if="collection.pictograms" class="flex">
-          <Pictogram
-            class="mr-4"
-            v-for="type in collection.pictograms"
-            :key="type"
-            :type="type"
-          />
-        </div>
-        <div class="mt-5">
+        <div class="mt-12">
           <Price
             v-if="collection.frogogoCodes"
             :price="collection.price"
@@ -60,7 +49,6 @@
 <script>
 import Price from "./Price";
 import Note from "./Note";
-import Pictogram from "./Pictogram";
 
 export default {
   name: "Collection",
@@ -71,14 +59,13 @@ export default {
   components: {
     Price,
     Note,
-    Pictogram,
   },
 };
 </script>
 
 <style scoped lang="css">
 .collection__description {
-  @apply text-lg mt-5;
+  @apply text-base mt-5 font-light;
 }
 
 .collection__image {
@@ -88,12 +75,12 @@ export default {
 }
 
 .collection__list {
-  @apply my-6 list-disc ml-5 p-0 text-lg;
+  @apply my-6 list-disc ml-5 p-0 text-lg text-light;
 }
 
-.collection__list li {
-  @apply text-white;
-}
+/* .collection__list li {
+  
+} */
 
 .collections .collection:last-child {
   @apply mb-0;

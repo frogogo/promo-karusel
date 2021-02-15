@@ -1,41 +1,44 @@
 <template>
   <div class="py-20">
-    <div class="container">
+    <div class="container text-black">
       <h2
-        class="text-bold text-white text-3xl md:text-5xl leading-tight mb-10 md:mb-32"
+        class="text-karusel-regular text-3xl md:text-5xl leading-tight mb-10 md:mb-12"
         id="how-to"
       >
-        Как принять <br />
-        участие в акции?
+        Как принять участие в акции
       </h2>
-      <div class="lg:flex lg:justify-between mb-10 md:mb-32">
+      <div class="lg:flex lg:justify-between mb-12 px-12">
         <div
           :key="step.number"
           v-for="step in steps"
-          class="text-center mb-10 lg:mb-0 lg:mr-10 relative"
+          class="step w-60 text-center mb-10 lg:mb-0"
         >
-          <div class="step text-karusel-regular" :data-step="step.number" />
-          <inline-svg
-            :src="step.iconUrl"
-            class="w-32 h-32 md:w-48 md:h-48 mb-5 mx-auto"
-          />
-          <p class="text-bold text-white text-xl">{{ step.title }}</p>
-          <p class="text-bold text-white text-4xl">{{ step.caption }}</p>
+          <div class="step__content flex relative mx-auto">
+            <div class="step__number text-karusel-regular" :data-step="step.number" />
+            <inline-svg
+              :src="step.iconUrl"
+              class="w-32 h-32 md:w-48 md:h-48 mb-5 mx-auto"
+            />
+          </div>
+          <p class="text-base text-lg text-light">
+            {{ step.title }}
+          </p>
+          <span class="text-xl">
+            {{ step.subtitle }}
+          </span>
         </div>
       </div>
       <div class="flex flex-col sm:flex-row justify-center">
         <a
-          href="/rules.pdf"
+          href="/files/rules.pdf"
           class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0"
-          data-user-action="rules"
           target="_blank"
         >
           Правила акции
         </a>
         <a
-          href="/booklet.pdf"
+          href="/files/booklet.pdf"
           class="btn btn-white text-bold"
-          data-user-action="booklet"
           target="_blank"
         >
           Скачать буклет
@@ -53,21 +56,21 @@ export default {
       steps: [
         {
           number: "1",
-          iconUrl: require("@/assets/images/im-step-cart.svg"),
+          iconUrl: require("@/assets/images/steps/step-1.svg"),
           title: "Совершайте покупки",
-          caption: "в гипермаркете",
+          subtitle: "В ГИПЕРМАРКЕТЕ",
         },
         {
           number: "2",
-          iconUrl: require("@/assets/images/im-step-sticker.svg"),
+          iconUrl: require("@/assets/images/steps/step-2.svg"),
           title: "Собирайте наклейки",
-          caption: "300 ₽ = 1 наклейка",
+          subtitle: "300 ₽ = 1 наклейка",
         },
         {
           number: "3",
-          iconUrl: require("@/assets/images/im-step-80.svg"),
-          title: "Покупайте товары BUGATTI",
-          caption: "со скидкой",
+          iconUrl: require("@/assets/images/steps/step-3.svg"),
+          title: "Покупайте товары Guy Laroche",
+          subtitle: 'СО СКИДКОЙ'
         },
       ],
     };
@@ -81,42 +84,54 @@ export default {
 }
 
 .btn-primary {
-  @apply bg-primary-500 border-primary-500;
+  @apply bg-primary border-primary;
 }
 
 .btn-white {
-  @apply bg-transparent border-white;
+  @apply bg-transparent border-2 border-grey-500 text-grey-700;
 }
 
 .btn-primary:hover {
-  @apply bg-white text-primary-500 border-white;
+  @apply bg-primary;
 }
 
 .btn-white:hover {
-  @apply bg-white text-primary-500;
+  @apply bg-white text-primary;
 }
 
-.step {
+.step__number {
+  @apply z-10 absolute top-0;
+
   height: 72px;
-  width: 72px;
-  @apply absolute top-0;
+  width: 72px
 }
 
-.step::after {
+.step__content {
+  width:180px
+}
+
+.step:nth-child(2)  {
+  padding-left: 40px;
+}
+
+.step:nth-child(2) .step__content {
+  width: 320px;
+}
+
+.step__number::after {
   @apply rounded-lg;
   content: "";
   display: block;
   transform: rotate(45deg);
   width: 100%;
   height: 100%;
-  background: white;
-  opacity: 0.2;
+  background: rgba(233, 236, 238, 0.8);
 }
 
-.step::before {
+.step__number::before {
   content: attr(data-step);
 
-  @apply absolute w-full h-full flex items-center justify-center text-white text-5xl;
+  @apply z-20 absolute w-full h-full flex items-center justify-center text-dark text-5xl;
 }
 
 @media (min-width: 768px) {
@@ -126,7 +141,7 @@ export default {
 }
 
 @media (min-width: 1024px) {
-  .step {
+  .step__number {
     left: -2rem;
   }
 }

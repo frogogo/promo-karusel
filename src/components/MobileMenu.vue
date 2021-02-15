@@ -35,7 +35,6 @@
               v-for="link in navigationLinks"
               :key="link.url"
               class="navigation-link mb-5"
-              :data-user-action:="link.userAction"
               :href="link.url"
               @click="
                 isModalOpened = false;
@@ -109,7 +108,7 @@ export default {
 }
 
 .navigation-link:hover {
-  @apply text-grey;
+  @apply text-grey-500;
 }
 
 .navigation-link:hover:after {
@@ -117,6 +116,6 @@ export default {
   bottom: -0.7rem;
   left: calc(50% - 1.25rem);
 
-  @apply w-10 h-1 bg-primary-300 absolute rounded flex;
+  @apply w-10 h-1 bg-primary absolute rounded flex;
 }
 </style>

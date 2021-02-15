@@ -1,52 +1,34 @@
 <template>
   <div class="flex items-center">
-    <div class="codes mr-6">
+    <div class="codes mr-4 sm:mr-6">
       <span class="codes__count">{{ codes }}</span>
-      <span class="codes__label">
-        {{ frogogoDiscount ? "кодов" : "наклеек" }}</span
-      >
+      <span class="codes__label">{{codesPlural(codes)}}</span>
     </div>
-    <div class="price price--xl">
-      <span class="price__amount">
-        {{ discountedPrice.toLocaleString("ru-RU") }}
-      </span>
-      <span class="price__penny">00</span>
+    <div class="price__wrapper">
+      <span class="price__label text-primary">Цена по акции</span>
+      <div class="price text-primary">
+        <span class="price__amount">
+          {{ discountedPrice.toLocaleString("ru-RU") }}
+        </span>
+        <small class="price__currency">₽</small>
+      </div>
     </div>
     <span class="divider mx-4 md:mx-5" />
-    <div class="flex flex-col pt-1" v-if="!frogogoDiscount">
-      <span class="price__label">Цена без наклеек</span>
-      <div class="price">
+    <div class="price__wrapper">
+      <span class="price__label text-grey-700">Розничная цена:</span>
+      <div class="price text-grey-700 font-light">
         <span class="price__amount">
           {{ price.toLocaleString("ru-RU") }}
         </span>
-        <span class="price__penny">00</span>
-        <small class="price__currency">Руб.</small>
-      </div>
-    </div>
-    <div class="flex flex-col pt-1" v-else>
-      <span class="frogogo__label">суперскидка 90%</span>
-      <div class="flex">
-        <inline-svg
-          class="h-6 w-6 md:w-12 md:h-12 mr-2 md:mr-4"
-          :src="require('@/assets/images/logo-marchio-frogogo.svg')"
-        />
-        <span class="frogogo">
-          Зарегистрируйте 20 кодов с наклеек на сайте
-          <a class="underline" href="http://frogogo.ru/" target="__blank">
-            www.frogogo.ru
-          </a>
-          и получите купон</span
-        >
-        <inline-svg
-          class="hidden md:inline w-12 h-12 ml-4"
-          :src="require('@/assets/images/icon-arrow-right.svg')"
-        />
+        <small class="price__currency">₽</small>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+const pluralRules = new Intl.PluralRules('ru-RU');
+
 export default {
   props: {
     price: Number,
@@ -54,6 +36,17 @@ export default {
     codes: Number,
     frogogoDiscount: Number,
   },
+  methods: {
+    codesPlural(code) {
+      const translates = {
+        one: 'наклейка',
+        few: 'наклейки',
+        many: 'наклеек'
+      }
+
+      return translates[pluralRules.select(code)]
+    }
+  }
 };
 </script>
 
@@ -65,32 +58,43 @@ export default {
 }
 
 .divider {
+  @apply rounded;
   width: 2px;
   height: 36px;
-
-  background-color: #ffffff;
+  background: rgba(233, 236, 238, 0.8);
 }
 
 .codes {
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center bg-primary p-1;
+
   border-radius: 10px;
-  width: 56px;
-  height: 40px;
+  margin-top: -16px;
+  width: 60px;
+  height: 70px;
   flex-shrink: 0;
-  background-color: #e30513;
 }
 
 .codes__count {
+  @apply text-white;
+
   font-family: "KaruselRegular";
-  line-height: 26px;
-  font-size: 26px;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 46px;
 }
 
 .codes__label {
-  @apply tracking-widest;
-  font-family: "KaruselRegular";
-  line-height: 12px;
-  font-size: 10px;
+  @apply tracking-widest mb-1 text-white font-bold;
+
+  line-height: 18px;
+  font-size: 14px;
+}
+
+.price__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  height: 70px;
 }
 
 .price {
@@ -103,17 +107,13 @@ export default {
 
 .price__amount {
   font-family: "KaruselRegular";
-  font-size: 1em;
-}
-
-.price__penny {
-  font-family: "KaruselSmall";
+  font-size: 72px;
+  line-height: 42px;
 }
 
 .price__currency {
   @apply ml-1;
   font-size: 0.5em;
-  font-family: "KaruselSmall";
 }
 
 .price__label {
@@ -122,6 +122,7 @@ export default {
 }
 
 .price--xl {
+  @apply text-primary;
   font-size: 45px;
   line-height: 45px;
 
@@ -129,7 +130,8 @@ export default {
 }
 
 .price--xl .price__amount {
-  font-size: 1em;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 .price--xl .price__penny {
@@ -138,13 +140,12 @@ export default {
 }
 
 .discounted-price {
-  font-family: "KaruselRegular";
   line-height: 1em;
   font-size: 1em;
 }
 
 .frogogo {
-  font-family: "CircleRegular";
+  font-family: "Rubik";
   font-size: 7px;
 }
 
@@ -163,29 +164,35 @@ export default {
     line-height: 36px;
   }
 
+  .price__amount {
+    font-size: 72px;
+    line-height: 36px;
+  }
+
   .price--xl {
     font-size: 80px;
     line-height: 80px;
   }
 
   .divider {
-    width: 2px;
-    height: 60px;
+    width: 1px;
+    height: 70px;
   }
 
   .price__label {
-    @apply pb-2 text-xs;
+    @apply pb-1 text-xs;
   }
 
   .codes {
-    height: 56px;
     width: 80px;
+    height: 70px;
+    margin-top: 0;
   }
 
-  .codes__count {
-    font-size: 42px;
-    line-height: 36px;
-  }
+  /* .codes__count {
+    font-size: 38px;
+    line-height: 38px;
+  } */
 
   .codes__label {
     line-height: 18px;

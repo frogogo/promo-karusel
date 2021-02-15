@@ -1,9 +1,6 @@
 <template>
   <div class="pt-10 pb-32">
     <div class="container" id="collections">
-      <h2 class="text-bold text-white text-3xl md:text-5xl leading-tight mb-32">
-        Коллекция товаров BUGATTI
-      </h2>
       <div class="collections">
         <Collection
           :key="collection.id"

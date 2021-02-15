@@ -15,6 +15,7 @@ import HowTo from "./components/HowTo";
 import Collections from "./components/Collections";
 import Participants from "./components/Participants";
 import AnalyticsEvents from "@/data/analyticsEvents";
+import data from "@/data/data"
 
 export default {
   name: "app",
@@ -25,58 +26,21 @@ export default {
     Participants,
     PromoSection,
   },
-  mounted() {
-    this.initializeAnalytics();
-  },
-  methods: {
-    initializeAnalytics() {
-      const events = AnalyticsEvents;
-
-      window.addEventListener("click", (event) => {
-        let target;
-
-        event.target.hasAttribute("data-user-action")
-          ? (target = event.target)
-          : (target = event.target.closest("[data-user-action]"));
-
-        if (!target) {
-          return;
-        }
-
-        for (const [key, value] of Object.entries(events)) {
-          if (key === target.dataset.userAction) {
-            if (value.label === "PageUrl") {
-              value.label = target.href;
-            }
-
-            window.dataLayer.push({
-              event: value.event,
-              eventAction: value.action,
-              eventCategory: value.category,
-              eventLabel: value.label,
-            });
-          }
-        }
-      });
-    },
-  },
 };
 </script>
 
 <style lang="css">
 body {
-  background: fixed rgba(24, 25, 27, 0.76)
-    url("assets/images/im-background.png");
-  background-size: cover;
-  background-position: center;
-  min-width: 320px;
   font-family: "CircleRegular", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  color:#333536;
 }
 
 button {
   outline: 0;
 }
+
 
 /* Fonts */
 @font-face {

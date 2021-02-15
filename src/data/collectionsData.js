@@ -1,141 +1,145 @@
 export default [
   {
-    id: 'knife',
-    title: 'Разделочный нож 20 см',
-    frogogoCodes: 20,
-    frogogoDiscount: 90,
-    stickers: 8,
-    price: 2299,
-    discountedPrice: 499,
-    frogogoDiscountedPrice: 290,
-    image: require('@/assets/images/knife/im-razdelochny-01@2x.png'),
+     "title":"РЮКЗАК МУЖСКОЙ",
+     "price":10999,
+     "discountedPrice":3299,
+     "stickers":10,
+     "specifications":[
+        "размер: 31x13,5x45 см",
+        "цвет: темно-синий",
+        "состав: нейлон, ПВХ"
+     ],
+     image: require('@/assets/images/items/1.png'),
   },
   {
-    id: 'knife2',
-    title: 'Нож для овощей 8,5 см',
-    stickers: 8,
-    price: 1999,
-    discountedPrice: 399,
-    image: require('@/assets/images/knife2/im-dlyaochistki-03@2x.png'),
+     "title":"КОШЕЛЁК МУЖСКОЙ",
+     "price":7999,
+     "discountedPrice":1999,
+     "stickers":8,
+     "specifications":[
+        "размер: 9,5x13  см",
+        "цвет: темно-синий",
+        "состав: натуральная кожа"
+     ],
+     image: require('@/assets/images/items/2.png'),
   },
   {
-    id: 'knife3',
-    title: 'Универсальный нож 12,5 см',
-    stickers: 8,
-    price: 2299,
-    discountedPrice: 499,
-    image: require('@/assets/images/knife3/im-universal-01@2x.png'),
+     "title":"ЗОНТ МУЖСКОЙ",
+     "price":3330,
+     "discountedPrice":999,
+     "stickers":6,
+     "specifications":[
+        "размер: 85 см ø 104 см",
+        "цвет: темно-синий"
+     ],
+     image: require('@/assets/images/items/3.png'),
   },
   {
-    id: 'knife4',
-    title: 'Поварской нож 20 см',
-    stickers: 10,
-    price: 3499,
-    discountedPrice: 699,
-    image: require('@/assets/images/knife4/im-povarskoi-03@2x.png'),
+     "title":"СУМКА МУЖСКАЯ НАПЛЕЧНАЯ",
+     "price":3999,
+     "discountedPrice":1599,
+     "stickers":8,
+     "specifications":[
+        "размер: 23,5х7,5х27,5 см",
+        "цвет: темно-синий",
+        "состав: нейлон, ПВХ"
+     ],
+     image: require('@/assets/images/items/4.png'),
   },
   {
-    id: 'knife5',
-    title: 'Нож Сантоку 18 см',
-    stickers: 10,
-    price: 3499,
-    discountedPrice: 699,
-    image: require('@/assets/images/knife5/im-santoku-01@2x.png'),
+     "title":"СУМКА ЖЕНСКАЯ",
+     "price":9999,
+     "discountedPrice":2999,
+     "stickers":10,
+     "specifications":[
+        "размер: 30х17х21 см",
+        "цвет: темно-синий",
+        "состав: ПВХ"
+     ],
+     image: require('@/assets/images/items/5.png'),
   },
   {
-    id: 'knife6',
-    title: 'Тесак 16,5 см',
-    stickers: 10,
-    price: 4599,
-    discountedPrice: 899,
-    image: require('@/assets/images/knife6/im-tesak-03@2x.png'),
+     "title":"РЮКЗАК ЖЕНСКИЙ",
+     "price":9999,
+     "discountedPrice":2699,
+     "stickers":10,
+     "specifications":[
+        "размер: 30х27х13 см",
+        "цвет: бордовый",
+        "состав: ПВХ"
+     ],
+     image: require('@/assets/images/items/6.png'),
   },
   {
-    id: 'knife7',
-    title: 'Нож дамасская сталь',
-    stickers: 15,
-    price: 10999,
-    discountedPrice: 3999,
-    image: require('@/assets/images/knife7/im-domask-01@2x.png'),
-    description: 'Дамаск (дамасская сталь) – это вид узорчатой стали, которая используется для изготовления особо прочных клинков ножей. Данный металл состоит из 67 слоев разных типов стали с различным содержанием углерода (высокого и низкого), соединенных путем многократной ковки.',
-    specifications: [
-      'Ручка из материала Пакка',
-      'Твердость по шкале Роквелла 60±2',
-      'Высокая прочность лезвия',
-      'Безупречная острота режущей кромки'
-    ]
+     "title":"СУМКА ЖЕНСКАЯ",
+     "price":5999,
+     "discountedPrice":1799,
+     "stickers":8,
+     "specifications":[
+        "размер: 19,5х7х12 см",
+        "размер ремня: 46 х 3.5 см",
+        "цвет: красно-белый",
+        "состав: ПВХ"
+     ],
+     image: require('@/assets/images/items/7.png'),
   },
   {
-    id: 'tochilka',
-    title: 'Ножеточка Bugatti',
-    stickers: 10,
-    price: 2699,
-    discountedPrice: 799,
-    image: require('@/assets/images/tochilka/im-tochilka-01@2x.png'),
+     "title":"КОШЁЛЕК КЛАТЧ ЖЕНСКИЙ",
+     "price":3999,
+     "discountedPrice":1199,
+     "stickers":6,
+     "specifications":[
+        "размер: 19,5х10 см",
+        "цвет: красный",
+        "состав: ПВХ"
+     ],
+     image: require('@/assets/images/items/8.png'),
   },
   {
-    id: 'podstavka',
-    title: 'Подставка Bugatti',
-    stickers: 12,
-    price: 5999,
-    discountedPrice: 1699,
-    image: require('@/assets/images/podstavka/im-podstavka-01@2x.png'),
+     "title":"КЛЮЧНИЦА",
+     "price":2854,
+     "discountedPrice":999,
+     "stickers":6,
+     "specifications":[
+        "размер: 8х5х2 см",
+        "цвет: бордовый",
+        "состав: натуральная кожа"
+     ],
+     image: require('@/assets/images/items/9.png'),
   },
   {
-    id: 'forma',
-    title: 'Керамическая форма для запекания прямоугольная 28×17 см',
-    stickers: 8,
-    price: 2499,
-    discountedPrice: 699,
-    image: require('@/assets/images/forma/im-forma-28-01@2x.png'),
-    specifications: [
-      'Прочная керамика',
-      'Устойчивое антипригарное покрытие',
-      'Подходит для приготовления в духовке и для сервировки блюд'
-    ],
-    pictograms: ['oven', 'dishwasher']
+     "title":"ЗОНТ",
+     "price":2999,
+     "discountedPrice":899,
+     "stickers":6,
+     "specifications":[
+        "размер: 85 см ø 104 см",
+        "цвет: песочный"
+     ],
+     image: require('@/assets/images/items/10.png'),
   },
   {
-    id: 'forma-big',
-    title: 'Керамическая форма для запекания прямоугольная 41×24 см',
-    stickers: 8,
-    price: 2999,
-    discountedPrice: 999,
-    image: require('@/assets/images/forma/im-forma-28-01@2x.png'),
-    specifications: [
-      'Прочная керамика',
-      'Устойчивое антипригарное покрытие',
-      'Подходит для приготовления в духовке и для сервировки блюд'
-    ],
-    pictograms: ['oven', 'dishwasher']
+     "title":"ШАРФ",
+     "price":4999,
+     "discountedPrice":1999,
+     "stickers":8,
+     "specifications":[
+        "размер: 30х180 см",
+        "цвет: многоцветный",
+        "состав: натуральная шерсть"
+     ],
+     image: require('@/assets/images/items/11.png'),
   },
   {
-    id: 'roster',
-    title: 'Ростер с крышкой 32×20×11 см (4 л)',
-    stickers: 12,
-    price: 8599,
-    discountedPrice: 2899,
-    image: require('@/assets/images/roster/im-roster-01@2x.png'),
-    specifications: [
-      'Литой алюминий с прочным и безопасным антипригарным покрытием',
-      '«арома-ручка» с микроотверстием для дозированной подачи жидких компонентов',
-      'Съемные силиконовые ручки выдерживающие температуру до 250 °С',
-      'Крышка служит удобной термостойкой подставкой'
-    ],
-    pictograms: ['dishwasher', 'gas', 'electric', 'induction', 'oven250']
-  },
-  {
-    id: 'kastryulya',
-    title: 'Чугунная кастрюля с крышкой 24 см',
-    stickers: 15,
-    price: 11999,
-    discountedPrice: 3999,
-    image: require('@/assets/images/kastryulya/im-kastryulya-03@2x.png'),
-    description: 'Крышка в перевернутом виде служит сковородой-гриль и подходит для приготовления стейков с характерным рисунком',
-    specifications: [
-      'Экологически безопасный чугун',
-      'Подходит для духовки, газового гриля и мангалов с рассекателем пламени'
-    ],
-    pictograms: ['electric', 'induction', 'gas', 'glassСeramics', 'ceramic', 'oven']
-  },
+     "title":"ШАРФ",
+     "price":3999,
+     "discountedPrice":1499,
+     "stickers":8,
+     "specifications":[
+        "размер: 65х180 см",
+        "цвет: бордовый",
+        "состав: 70% полиэстер, 30% вискоза"
+     ],
+     image: require('@/assets/images/items/12.png'),
+  }
 ]

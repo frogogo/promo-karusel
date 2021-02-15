@@ -1,46 +1,38 @@
 <template>
-  <div class="pt-10">
+  <div class="pt-10 bg-white">
     <div class="container" id="participants">
       <h2
-        class="text-bold text-white text-3xl md:text-5xl leading-tight mb-12 md:mb-32"
+        class="text-karusel-regular text-3xl md:text-5xl leading-tight mb-12"
       >
-        Гипермаркеты — участники акции
+        Гипермаркеты — участники акции
       </h2>
       <div class="flex flex-col md:flex-row mb-12">
         <div
           class="participants md:flex-1 overflow-y-scroll mb-8 md:mb-0 md:pr-5 md:mr-16"
         >
-          <div
-            v-for="participant in this.participants"
-            :key="participant.address"
-          >
+
             <div
-              class="participant relative"
+              v-for="participant in this.participants"
+              :key="participant.address"
+              class="participant relative text-grey-700 hover:text-primary"
               ref="participant"
               :id="participant.address"
               :class="
                 selectedAddress === participant.address && 'participant--active'
               "
-              @click="
-                selectedAddress = participant.address;
-                selectParticipant();
-              "
+              @click="selectParticipant(participant.address)"
             >
               <span
-                class="text-lg text-white text-bold mr-3 truncate flex-none"
+                class="text-lg text-bold mr-3 truncate flex-none"
               >
-                {{ participant.district ? participant.district : "г" }}.
                 {{ participant.city }}
               </span>
-              <span class="text-lg text-regular text-grey truncate address">
+              <span class="text-lg text-light font-light truncate address">
                 {{ participant.address }}
               </span>
               <span
                 class="close-icon"
-                @click.stop="
-                  selectedAddress = '';
-                  initializeParticipants();
-                "
+                @click.stop="handleCancel"
               >
                 <img
                   :src="require('@/assets/images/icon-close.svg')"
@@ -49,7 +41,7 @@
               </span>
             </div>
           </div>
-        </div>
+
         <div class="md:flex-1 rounded-lg overflow-hidden">
           <div id="map"></div>
         </div>
@@ -59,15 +51,15 @@
         class="flex flex-col md:flex-row md:items-center md:justify-between pb-5 border-b border-lightGrey"
       >
         <Contacts />
-        <p class="md:ml-32 mt-5 md:mt-0 flex-1 text-regular text-xs text-white">
+        <p class="md:ml-32 mt-5 md:mt-0 flex-1 text-regular text-xs text-grey-700">
           Подробную информации о товаре, порядке получения скидки, месте и
           сроках ее проведения можно узнать у организатора акции ООО «КЛР» (ИНН
-          7731452742) по телефону бесплатной «горячей линии» 8 800 555 07 88 в
+          7731452742) по телефону бесплатной «горячей линии» 8 800 555-07-08 в
           рабочие дни с 9:00 до 18:00 (время московское)
         </p>
       </div>
       <div class="py-5">
-        <span class="text-regular text-xs text-grey">
+        <span class="text-regular text-xs text-grey-500">
           Copyright © {{ new Date().getFullYear() }} KLR. Все права защищены.
         </span>
       </div>
@@ -91,7 +83,7 @@ export default {
           lang: "ru_RU",
           version: "2.1",
         },
-        coords: [55.618181, 45.509568],
+        coords: [50.303019, 127.552782],
         zoom: 4,
         map: Object,
       },
@@ -148,7 +140,8 @@ export default {
         this.yMaps.map.setCenter(coords, 17);
       });
     },
-    selectParticipant() {
+    selectParticipant(address) {
+      this.selectedAddress = address;
       this.participants.map((element) => {
         if (element.address === this.selectedAddress) {
           this.yMaps.map.setCenter(element.coords, 17);
@@ -160,8 +153,20 @@ export default {
         this.initializeGeoObject(element.coords, element.address);
       });
 
-      this.yMaps.map.setCenter(this.yMaps.coords, this.yMaps.zoom);
+      this.yMaps.map.setBounds(this.yMaps.map.geoObjects.getBounds(), {
+          checkZoomRange: true,
+          zoomMargin: 5
+      });
     },
+
+    handleCancel() {
+      this.selectedAddress = '';
+      
+      this.yMaps.map.setBounds(this.yMaps.map.geoObjects.getBounds(), {
+        checkZoomRange: true,
+        zoomMargin: 5
+      });
+    }
   },
 };
 </script>
@@ -179,8 +184,12 @@ export default {
 .participant {
   @apply flex flex-col py-2 border-b cursor-pointer;
 
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(233, 236, 238, 0.8);
   transition: all 150ms ease-in;
+}
+
+.participant:first-child {
+  @apply border-t;
 }
 
 .close-icon {
@@ -193,7 +202,7 @@ export default {
 }
 
 .participant--active {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.05)
 }
 
 .participant--active .close-icon {
@@ -210,7 +219,7 @@ export default {
 
   @apply rounded;
 
-  background: rgba(255, 255, 255, 0.2);
+  background:rgba(233, 236, 238, 0.8);
 }
 
 .participants::-webkit-scrollbar-track {
@@ -218,11 +227,11 @@ export default {
 }
 
 .participants::-webkit-scrollbar-thumb {
-  @apply rounded-lg bg-primary-300;
+  @apply rounded-lg bg-dark;
 }
 
 .participants::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-500;
+  @apply bg-primary;
 }
 
 @media (min-width: 640px) {

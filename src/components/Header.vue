@@ -117,6 +117,7 @@ export default {
   left: 0;
   top: 0;
   width: 100%;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .header--mini {
@@ -136,7 +137,7 @@ export default {
 }
 
 .navigation-link:hover {
-  @apply text-primary-300;
+  @apply text-primary;
 }
 
 .navigation-link.navigation-link--current::after {
@@ -150,7 +151,7 @@ export default {
   bottom: -0.3rem;
   left: calc(50% - 1.25rem);
 
-  @apply w-10 h-1 bg-primary-300 absolute rounded flex;
+  @apply w-10 h-1 bg-primary absolute rounded flex;
 }
 
 .header-description {

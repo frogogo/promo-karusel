@@ -1,44 +1,34 @@
 <template>
   <section class="section">
-    <div class="container flex flex-col-reverse items-center md:flex-row">
-      <div class="flex-1 md:mr-20">
-        <h1 class="mb-4 text-white font-bold text-2xl lg:text-4xl leading-none">
-          <span class="title">готовьте как профи!</span>
-        </h1>
-        <span class="subtitle">
-          <p>Собирайте наклейки, получайте скидку</p>
-          <p>с 08.10.2020 г. по 13.01.2021 г.</p>
-        </span>
-        <img
-          class="mt-16 mb-6"
-          :src="require('@/assets/images/logo-bugatti.svg')"
-        />
-        <div class="text-white text-lg">
-          <p class="mb-5 text-regular">
-            Компания Bugatti*, учрежденная в 1923 году в Лумедзане (Италия),
-            начинала свою деятельность как профессиональная мастерская,
-            занимающаяся промышленным изготовлением ножей. В настоящее время,
-            благодаря постоянному внедрению в производство инновационных
-            технологий, современным разработкам в области дизайна и высокому
-            качеству выпускаемой продукции (посуды, бытовых приборов, ножей и
-            кухонных аксессуаров), популярный бренд Bugatti является синонимом
-            надежности и доверия покупателей во всем мире.
-          </p>
-          <p>* Бугатти</p>
+    <div class="container flex flex-col-reverse sm:items-center md:flex-row">
+      <div class="w-1/2 flex-1">
+        <div class="description"> 
+          <h1 class="mb-4 font-bold text-2xl lg:text-4xl leading-none">
+            <span class="text-karusel-regular text-primary text-6xl font-normal leading-tight uppercase">Мода кроется в деталях</span>
+          </h1>
+          <h2 class="text-4xl mb-5 text-karusel-regular uppercase">КОЛЛЕКЦИЯ СУМОК И АКСЕССУАРОВ</h2>
+          <div class="text-base">
+            <p class="mb-4">
+              История бренда Guy Laroche* началась в 1957 году в Париже с создания коллекции женской одежды. Сегодня Guy Laroche является одним из самых узнаваемых брендов в мире. Продукция данной марки характеризуется непревзойдённым качеством, изысканным дизайном и продуманными цветовыми решениями.
+            </p>
+            <p class="mb-4">
+              Модная коллекция сумок и аксессуаров Guy Laroche, где каждое изделие создано с особой тщательностью и большим вниманием к деталям, предназначена не только для любителей французского стиля, наполненного утончённой и сдержанной элегантностью, но и для людей, ценящих оригинальность и удобство.
+            </p>
+            <p class="mb-4">
+              Выбирая продукцию данного бренда, вы отдаёте предпочтение высокому качеству, комфорту и надёжности.
+            </p>
+            <p class="text-light">* Ги Ларош</p>
+          </div>
         </div>
       </div>
-      <div class="flex-1">
-        <v-lazy-image
-          :src="require('@/assets/images/im-header@2x.png')"
-          class="mb-8 md:mb-0"
-          alt="Промо"
-        />
+      <div class="flex w-1/2 items-start">
+        <img class="mr-auto max-w-md" :src="require('@/assets/images/image-headeer.png')"/>
       </div>
     </div>
     <a
       href="#how-to"
       v-smooth-scroll="{ duration: 300, offset: -100 }"
-      class="flex flex-1 items-center"
+      class="flex flex-1 items-center mb-6"
     >
       <img
         :src="require('@/assets/images/icon-down.svg')"
@@ -49,21 +39,19 @@
   </section>
 </template>
 
-<style scoped>
+<style lang='postcss' scoped>
 .section {
   @apply flex flex-col pt-8;
 
+  background-size: cover;
   margin-top: 100px;
   min-height: calc(100vh - 100px);
 }
 
-.title {
-  @apply text-white text-6xl font-normal;
-  font-family: "KaruselRegular";
+@media (min-width: 640px) {
+  .description {
+    max-width: 472px;
+  }
 }
 
-.subtitle {
-  @apply text-white text-xl;
-  font-family: "CircleBold";
-}
 </style>
