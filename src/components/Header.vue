@@ -129,7 +129,7 @@ export default {
 }
 
 .header--mini img {
-  padding: 10px 0;
+  padding: 2px 0;
 }
 
 .navigation-link {

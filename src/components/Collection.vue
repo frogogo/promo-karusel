@@ -18,7 +18,7 @@
       :class="positionLeft ? 'items-start' : 'lg:items-end'"
     >
       <div class="flex flex-col">
-        <h3 class="text-karusel-regular text-bold text-xl md:text-4xl ">
+        <h3 class="text-karusel-regular text-bold text-4xl ">
           {{ collection.title }}
         </h3>
         <ul class="collection__list" v-if="collection.specifications">

@@ -87,7 +87,7 @@ export default {
   @apply tracking-widest mb-1 text-white font-bold;
 
   line-height: 18px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .price__wrapper {
@@ -107,7 +107,7 @@ export default {
 
 .price__amount {
   font-family: "KaruselRegular";
-  font-size: 72px;
+  font-size: 60px;
   line-height: 42px;
 }
 
@@ -188,11 +188,6 @@ export default {
     height: 70px;
     margin-top: 0;
   }
-
-  /* .codes__count {
-    font-size: 38px;
-    line-height: 38px;
-  } */
 
   .codes__label {
     line-height: 18px;

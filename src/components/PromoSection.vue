@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="container flex flex-col-reverse sm:items-center md:flex-row">
-      <div class="w-1/2 flex-1">
+      <div class="md:w-1/2 flex-1">
         <div class="description"> 
           <h1 class="mb-4 font-bold text-2xl lg:text-4xl leading-none">
             <span class="text-karusel-regular text-primary text-6xl font-normal leading-tight uppercase">Мода кроется в деталях</span>
@@ -21,8 +21,8 @@
           </div>
         </div>
       </div>
-      <div class="flex w-1/2 items-start">
-        <img class="mr-auto max-w-md" :src="require('@/assets/images/image-headeer.png')"/>
+      <div class="flex md:w-1/2 items-start">
+        <img class="w-full md:w-auto md:mr-auto md:max-w-md" :src="require('@/assets/images/image-headeer.png')"/>
       </div>
     </div>
     <a
