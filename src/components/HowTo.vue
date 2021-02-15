@@ -1,49 +1,47 @@
 <template>
-  <div class="py-20">
-    <div class="container text-black">
-      <h2
-        class="text-karusel-regular text-3xl md:text-5xl leading-tight mb-10 md:mb-12"
-        id="how-to"
+  <div class="container text-black">
+    <h2
+      class="text-karusel-regular text-3xl md:text-5xl leading-tight mb-10 md:mb-12"
+      id="how-to"
+    >
+      Как принять участие в акции
+    </h2>
+    <div class="lg:flex lg:justify-between mb-12 px-12">
+      <div
+        :key="step.number"
+        v-for="step in steps"
+        class="step w-60 text-center mb-10 lg:mb-0"
       >
-        Как принять участие в акции
-      </h2>
-      <div class="lg:flex lg:justify-between mb-12 px-12">
-        <div
-          :key="step.number"
-          v-for="step in steps"
-          class="step w-60 text-center mb-10 lg:mb-0"
-        >
-          <div class="step__content flex relative mx-auto">
-            <div class="step__number text-karusel-regular" :data-step="step.number" />
-            <inline-svg
-              :src="step.iconUrl"
-              class="w-32 h-32 md:w-48 md:h-48 mb-5 mx-auto"
-            />
-          </div>
-          <p class="text-base text-lg text-light">
-            {{ step.title }}
-          </p>
-          <span class="text-xl">
-            {{ step.subtitle }}
-          </span>
+        <div class="step__content flex relative mx-auto">
+          <div class="step__number text-karusel-regular" :data-step="step.number" />
+          <inline-svg
+            :src="step.iconUrl"
+            class="w-32 h-32 md:w-48 md:h-48 mb-5 mx-auto"
+          />
         </div>
+        <p class="text-base text-lg text-light">
+          {{ step.title }}
+        </p>
+        <span class="text-xl">
+          {{ step.subtitle }}
+        </span>
       </div>
-      <div class="flex flex-col sm:flex-row justify-center">
-        <a
-          href="/files/rules.pdf"
-          class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0"
-          target="_blank"
-        >
-          Правила акции
-        </a>
-        <a
-          href="/files/booklet.pdf"
-          class="btn btn-white text-bold"
-          target="_blank"
-        >
-          Скачать буклет
-        </a>
-      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-center">
+      <a
+        href="/files/rules.pdf"
+        class="btn btn-primary text-bold sm:mr-5 mb-6 sm:mb-0"
+        target="_blank"
+      >
+        Правила акции
+      </a>
+      <a
+        href="/files/booklet.pdf"
+        class="btn btn-white text-bold"
+        target="_blank"
+      >
+        Скачать буклет
+      </a>
     </div>
   </div>
 </template>

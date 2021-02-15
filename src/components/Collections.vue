@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-10 pb-32">
+  <div class="pt-10 pb-8">
     <div class="container" id="collections">
       <div class="collections">
         <Collection

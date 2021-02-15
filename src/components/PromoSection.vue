@@ -4,7 +4,7 @@
       <div class="md:w-1/2 flex-1">
         <div class="description"> 
           <h1 class="mb-4 font-bold text-2xl lg:text-4xl leading-none">
-            <span class="text-karusel-regular text-primary text-6xl font-normal leading-tight uppercase">Мода кроется в деталях</span>
+            <span class="text-karusel-regular text-primary text-6xl font-normal leading-tight uppercase">Мода кроется <br class="md:hidden"> в деталях</span>
           </h1>
           <h2 class="text-4xl mb-5 text-karusel-regular uppercase">КОЛЛЕКЦИЯ СУМОК И АКСЕССУАРОВ</h2>
           <div class="text-base">
