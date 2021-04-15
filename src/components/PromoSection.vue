@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="flex md:w-1/2 items-start">
-        <img class="w-full md:w-auto md:mr-auto md:max-w-md" :src="require('@/assets/images/image-headeer.png')"/>
+        <img class="w-full md:w-auto md:mr-auto md:max-w-md" :src="require('@/assets/images/image-headeer.jpeg')"/>
       </div>
     </div>
     <a
